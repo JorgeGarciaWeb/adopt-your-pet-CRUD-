@@ -2,14 +2,6 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-a {
-  color: #00b7ff;
-}
-
-h1 {
-  margin-top: 20px;
-  color: 15px;
-}
 
 .error {
   margin-top: 10px;
@@ -18,4 +10,13 @@ h1 {
   padding: 6px;
   color: white;
   border-radius: 10px;
+}
+
+
+.background {
+
+  background-image: url("./../images/background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
 }
