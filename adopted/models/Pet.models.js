@@ -16,19 +16,11 @@ const petSchema = new Schema(
             type: Schema.Types.ObjectId,
             ref: 'Pound'
         },
-<<<<<<< HEAD
         owner:{
             type: Schema.Types.ObjectId,
             ref: 'User'
         }
     
-=======
-        owner: {
-            type: Schema.Types.ObjectId,
-            ref: 'User'
-        }
-
->>>>>>> 882574f35bdbe5b88f8da314b95a61566ecb77a3
     },
     {
         timestamps: true,
