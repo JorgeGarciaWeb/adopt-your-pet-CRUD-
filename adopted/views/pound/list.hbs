@@ -13,6 +13,19 @@
                 </div>
             </div>
         </div>
+
+        <a href="/albergue/{{id}}/editar" class="btn-secondary btn-sm">Editar albergue</a>
+        <form action="/albergue/{{id}}/eliminar" method="POST" style="display: inline-block">
+            <input type="submit" value="Eliminar" class="btn btn-dark btn-sm">
+        </form>
+        <div class="btn-return">
+
+            <a href="/" class="btn btn-home">Volver al inicio</a>
+
+        </div>
+        </form>
+
         {{/each}}
+
     </div>
 </div>

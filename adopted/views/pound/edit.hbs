@@ -1,0 +1,37 @@
+<div class="albergue/lista">
+
+    <h2>Actualiza los datos {{name}}</h2>
+
+    <form action="/albergue/{{id}}/editar" method="POST">
+
+        <div class="mb-4">
+
+            <label for="name"></label>
+            <input type="text" class="form-control" id="name" placeholder="nombre" name="name" value="{{name}}">
+        </div>
+
+        <div class="mb-3">
+            <label for="description"></label>
+            <input type="text" class="form-control" id="description" placeholder="descripción" name="description"
+                value="{{description}}">
+        </div>
+
+        <div class="mb-3">
+            <label for="latitude"></label>
+            <input type="text" class="form-control" id="latitude" placeholder="latitude" name="latitud"
+                value="{{location.coordinates.[0]}}">
+        </div>
+
+        <div class="mb-3">
+            <label for="longitude"></label>
+            <input type="text" class="form-control" id="longitude" placeholder="latitud" name="longitude"
+                value="{{location.coordinates.[1]}}">
+        </div>
+        <button type="submit" class="btn btn-dark btn-sm">Editar albergue</button>
+
+
+        <a href="/lista" class="btn btn-dark btn-sm">Volver al inicio</a>
+
+    </form>
+
+</div>

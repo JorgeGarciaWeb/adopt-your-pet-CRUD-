@@ -32,11 +32,39 @@ router.post('/crear', (req, res, next) => {
         .catch(error => next(new Error(error)))
 })
 
+//EDIT POUND
+router.get('/:id/editar', (req, res, next) => {
 
+    const { id } = req.params
 
+    Pound
+        .findById(id)
+        .then(editPound => res.render('pound/edit', editPound))
+        .catch(error => next(new Error(error)))
 
+})
 
+router.post('/:id/editar', (req, res, next) => {
 
+    const { name, description, latitude, longitude } = req.body
+    const { id } = req.params
 
+    Pound
+        .findByIdAndUpdate(id, { name, description, latitude, longitude })
+        .then(() => res.redirect('/albergue/lista'))
+        .catch(error => next(new Error(error)))
+
+})
+
+//DELETE POUND
+router.post('/:id/eliminar', (req, res, next) => {
+
+    const { id } = req.params
+
+    Pound
+        .findByIdAndDelete(id)
+        .then(() => res.redirect('/albergue/lista'))
+        .catch(error => next(new Error(error)))
+})
 
 module.exports = router;

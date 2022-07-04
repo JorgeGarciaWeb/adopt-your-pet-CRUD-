@@ -52,6 +52,7 @@ router.get('/:id', (req, res) => {
         .catch(error => next(new Error(error)))
 }),
 
+<<<<<<< HEAD
     //EDIT
 router.get('/editar/:id', (req, res, next) => {
 
@@ -103,3 +104,6 @@ router.post("/borrar/:id", (req, res, next) => {
 
 
 module.exports = router
+=======
+    module.exports = router
+>>>>>>> 8292c9f70ab3c0456c475e6059ea4ad52d71ef22
