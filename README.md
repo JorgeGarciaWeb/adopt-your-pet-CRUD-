@@ -34,4 +34,4 @@ This is the routes that use :
 |/users/:id  | GET       | Details of a specific user |
 |/users      | POST      | Create a user dog register |
 |/users/:id  | PUT/PATCH | Update a user dog |
-|/users/:id  | DELETE    | Delete a user dog |# Project-2-Adopted-your-pet
+|/users/:id  | DELETE    | Delete a user dog |
