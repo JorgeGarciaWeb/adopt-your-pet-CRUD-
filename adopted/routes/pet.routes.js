@@ -1,7 +1,7 @@
 const router = require("express").Router()
 const Pet = require('../models/Pet.models')
 const Pound = require('../models/Pound.models')
-const { isLoggedIn, isOwner } = require("../error-handling/middleware/session-guard")
+const { isLoggedIn, isOwner, isAdmin } = require("../error-handling/middleware/session-guard")
 
 //LIST
 router.get('/lista', (req, res, next) => {

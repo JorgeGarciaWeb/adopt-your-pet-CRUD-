@@ -58,6 +58,7 @@ router.post('/iniciar-sesion', isLoggedOut, (req, res, next) => {
 
 //LOG-OUT
 router.post('/cerrar-sesion', (req, res) => {
+
     req.session.destroy()
     res.redirect('/')
 })

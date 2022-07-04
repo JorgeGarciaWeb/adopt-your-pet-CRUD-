@@ -19,7 +19,7 @@ const isAdmin = (req, res, next) => {
     if (admin) {
         next()
     } else {
-        res.render('auth/login', { errorMessage: 'No tienes permisos' })
+        res.render('auth/login', { errorMessage: 'No tienes permisos para registrar albergues' })
     }
 }
 
@@ -30,7 +30,7 @@ const isOwner = (req, res, next) => {
     if (owner) {
         next()
     } else {
-        res.render('auth/login', { errorMessage: 'No tienes permisos' })
+        res.render('auth/login', { errorMessage: 'No tienes permisos para registrar perros' })
     }
 }
 module.exports = { isLoggedIn, isLoggedOut, isAdmin, isOwner }
