@@ -8,8 +8,8 @@ router.get("/", (req, res, next) => {
 //AUTH ROUTES
 router.use("/", require("./auth.routes"))
 
-// USER ROUTES
-// router.use("/", require("./user.routes"))
+//POUNDS ROUTES
+router.use("/albergue", require("./pound.routes"))
 
 module.exports = router;
 
