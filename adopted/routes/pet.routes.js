@@ -41,21 +41,65 @@ router.post('/crear', isLoggedIn, isOwner, (req, res, next) => {
 
 router.get('/:id', (req, res) => {
     const { id } = req.params
-    //console.log("Antes del cast ->>>>>>>>>>>>>>>>", id)
+
     Pet
         .findById(id)
         .populate('cast')
-        .populate('owner')
         .then(pets => {
-            console.log("Este es el console log", pets)
+ 
             res.render('pets/details', pets)
         })
         .catch(error => next(new Error(error)))
 }),
 
+    //EDIT
+router.get('/editar/:id', (req, res, next) => {
+
+        const { id } = req.params
+        Pet
+            .findById(id)
+            
+            .then(pet => { 
+                Pound
+                .find()
+                .then(pounds => {
+                    res.render('pets/edit', {pet, pounds}) 
+                })
+                
+            })
+            .catch(error => next(new Error(error)))
+    })
+
+router.post('/editar/:id', (req, res, next) => {
+
+    const { id } = req.params
+    const { name, birth, description, avatar, cast } = req.body
+    console.log(req.body)
+
+    Pet
+        .findByIdAndUpdate(id, { name, birth, description, avatar, cast })
+        .then(() => {
+            res.redirect('/perros/lista')
+        })
+        .catch(error => next(new Error(error)))
+
+})
+
+//DELETE
+
+router.post("/borrar/:id", (req, res, next) => {
+    const { id } = req.params;
+
+    Pet.findByIdAndDelete(id)
+        .then(() => {
+            res.redirect("/perros/lista");
+        })
+        .catch(error => next(new Error(error)))
+});
 
 
 
 
 
-    module.exports = router
+
+module.exports = router
