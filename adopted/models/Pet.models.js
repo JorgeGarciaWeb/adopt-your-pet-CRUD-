@@ -2,11 +2,20 @@ const { Schema, model } = require("mongoose");
 
 const petSchema = new Schema(
     {
-        name: { type: String, require: true },
-        age: { type: Number },
+        name: {
+            type: String,
+            required: true
+        },
+        birth: { type: Date },
         description: { type: String },
-        profileImg: { type: String, default: "https://img.freepik.com/vector-gratis/lindo-perro-marron-avatar_79416-70.jpg" },
-        cast: [{ type: Schema.Types.ObjectId, ref: 'Pound' }],
+        avatar: {
+            type: String,
+            default: "https://img.freepik.com/vector-gratis/lindo-perro-marron-avatar_79416-70.jpg"
+        },
+        cast: { 
+            type: Schema.Types.ObjectId, 
+            ref: 'Pound' 
+        },
     },
     {
         timestamps: true,
