@@ -1,0 +1,32 @@
+<div class="container">
+
+
+    <h2>Mascotas disponibles</h2>
+
+    <hr>
+
+    {{#each dogs}}
+
+    <article>
+
+        <h3>Nombre: {{name}}</h3>
+
+        <h3>Fecha de nacimiento: {{birth}}</h3>
+
+        <h3>Descripción: {{description}}</h3>
+
+
+        {{!-- <a href="/drones/{{id}}/edit" class="btn btn-success">Actualizar</a>
+
+        <form action="/drones/{{id}}/delete" method="POST" style="display: inline-block">
+
+            <input type="submit" value="Eliminar" class="btn btn-danger">
+
+        </form> --}}
+        <hr>
+
+    </article>
+
+    {{/each}}
+
+</div>
