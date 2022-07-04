@@ -1,22 +1,20 @@
 <div class="container">
-
     <h1>Albergues disponibles</h1>
-
     <hr>
-
-    {{#each pound}}
-
-    <a href="/albergue/lista">
-        <h5>name: {{name}}</h5>
-
-        <h5>description: {{description}}</h5>
-
-        <h5>latitud {{location.coordinates.[0]}}</h5>
-
-        <h5>longitud {{location.coordinates.[1]}}</h5>
-
-    </a>
-    <br>
-    {{/each}}
-
+    <div class="row">
+        {{#each pound}}
+        <div class="col md-4">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{{name}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{description}}</h6>
+                    <a href="/" class="card-link">{{location.coordinates.[0]}}</a>
+                    <a href="/" class="card-link">{{location.coordinates.[1]}}</a>
+                </div>
+            </div>
+            </a>
+            <hr>
+        </div>
+        {{/each}}
+    </div>
 </div>

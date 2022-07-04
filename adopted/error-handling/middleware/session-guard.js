@@ -33,4 +33,4 @@ const isOwner = (req, res, next) => {
         res.render('auth/login', { errorMessage: 'No tienes permisos' })
     }
 }
-module.exports = { isLoggedIn, isLoggedOut, isAdmin }
+module.exports = { isLoggedIn, isLoggedOut, isAdmin, isOwner }
