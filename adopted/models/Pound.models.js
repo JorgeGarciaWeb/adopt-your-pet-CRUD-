@@ -8,21 +8,15 @@ const poundSchema = new Schema(
             type: { type: String },
             coordinates: [Number]
         }
+        
     },
-    { timestamps: true }
+    {
+        timestamps: true
+    }
 )
 
 poundSchema.index({ location: '2dsphere' })
 
 const Pound = model("Pound", poundSchema)
 
-
 module.exports = Pound
-
-
-
-
-
-
-
-
