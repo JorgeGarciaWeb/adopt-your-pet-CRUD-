@@ -1,8 +1,9 @@
 const router = require("express").Router()
 const Pet = require('../models/Pet.models')
 const Pound = require('../models/Pound.models')
-const { isLoggedIn } = require("../error-handling/middleware/session-guard")
+const { isLoggedIn, isOwner } = require("../error-handling/middleware/session-guard")
 
+//LIST
 router.get('/lista', (req, res, next) => {
 
     Pet
@@ -13,21 +14,20 @@ router.get('/lista', (req, res, next) => {
         .catch(error => next(new Error(error)))
 })
 
-router.post('/crear', isLoggedIn, (req, res, next) => {
+//CREATE
 
-    const { name, description, avatar } = req.body
-    const isOwner = req.session.currentUser.role === 'OWNER'
+router.get('/crear', isLoggedIn, isOwner, (req, res) => res.render('pets/create'))
+
+router.post('/crear', isLoggedIn, isOwner, (req, res, next) => {
+    const { name, birth, description, avatar } = req.body
 
     Pet
-        .create({ name, description, avatar })
+        .create({ name, birth, description, avatar })
         .then(() => {
-            res.render('pets/create', isOwner)
+            res.redirect('perros/lista')
         })
-
         .catch(error => next(new Error(error)))
-
 })
-
 
 
 

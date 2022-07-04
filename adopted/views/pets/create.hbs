@@ -1,1 +1,43 @@
-<h1>solo lo ve el owner</h1>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h1>Registrar perro</h1>
+
+            <hr>
+
+            <form method="POST" action="/perros/crear">
+                <div class="mb-3">
+                    <label>Name
+                        <input name="name" type="text">
+                    </label>
+
+                </div>
+
+                <div class="mb-3">
+                    <label>Fecha de nacimiento
+                        <input name="birth" type="date">
+                    </label>
+                </div>
+                <div class="mb-3">
+                    <label>Description
+                        <input name="description" type="text">
+                    </label>
+                </div>
+
+                <div class="mb-3">
+                    <label>URL Foto
+                        <input name="avatar" type="text">
+                    </label>
+
+                </div>
+
+                <div class="mb-3">
+                    <input type="submit" value="Registrar perro">
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>

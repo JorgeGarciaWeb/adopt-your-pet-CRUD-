@@ -1,32 +1,20 @@
 <div class="container">
-
-
-    <h2>Mascotas disponibles</h2>
-
+    <h1>Lista de perros</h1>
     <hr>
-
-    {{#each dogs}}
-
-    <article>
-
-        <h3>Nombre: {{name}}</h3>
-
-        <h3>Fecha de nacimiento: {{birth}}</h3>
-
-        <h3>Descripción: {{description}}</h3>
-
-
-        {{!-- <a href="/drones/{{id}}/edit" class="btn btn-success">Actualizar</a>
-
-        <form action="/drones/{{id}}/delete" method="POST" style="display: inline-block">
-
-            <input type="submit" value="Eliminar" class="btn btn-danger">
-
-        </form> --}}
-        <hr>
-
-    </article>
-
-    {{/each}}
-
+    <div class="row">
+        {{#each dogs}}
+        <div class="col md-4">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <img src="{{avatar}}" class="card-img-top" alt="Avatar">
+                    <h5 class="card-title">{{name}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{birth}}</h6>
+                    <a href="/" class="card-link">{{description}}</a>
+                </div>
+            </div>
+            </a>
+            <hr>
+        </div>
+        {{/each}}
+    </div>
 </div>
