@@ -1,20 +1,22 @@
 <div class="container">
-    <h1>Lista de perros</h1>
-    <hr>
-    <div class="row">
-        {{#each dogs}}
-        <div class="col md-4">
-            <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                    <img src="{{avatar}}" class="card-img-top" alt="Avatar">
-                    <h5 class="card-title">{{name}}</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">{{birth}}</h6>
-                    <a href="/" class="card-link">{{description}}</a>
+    <div class="photos">
+        <h1>Lista de perros</h1>
+        <hr>
+        <div class="row">
+            {{#each dogs}}
+            <div class="col md-4">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <img src="{{avatar}}" class="card-img-top" alt="Avatar">
+                        <h5 class="card-title">{{name}}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">{{birth}}</h6>
+                        <a href="/perros/{{id}}" class="btn btn-info btn-sm">Ver detalle</a>
+                    </div>
                 </div>
+                </a>
+                <hr>
             </div>
-            </a>
-            <hr>
+            {{/each}}
         </div>
-        {{/each}}
     </div>
 </div>

@@ -29,9 +29,25 @@ router.post('/crear', isLoggedIn, isOwner, (req, res, next) => {
         .catch(error => next(new Error(error)))
 })
 
+//DETAILS
+
+router.get('/:id', (req, res) => {
+    const { id } = req.params
+    //console.log("Antes del cast ->>>>>>>>>>>>>>>>", id)
+    Pet
+        .findById(id)
+        .populate('cast')
+        .populate('owner')
+        .then(pets => {
+            //console.log("Este es el console log", pets)
+            res.render('pets/details', pets)
+        })
+        .catch(error => next(new Error(error)))
+}),
 
 
 
 
 
-module.exports = router
+
+    module.exports = router

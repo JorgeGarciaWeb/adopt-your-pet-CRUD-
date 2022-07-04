@@ -1,0 +1,42 @@
+<div class="container">
+
+    <article>
+
+        <h2>
+            {{name}}
+            </h>
+            <p>
+
+                {{birth}}
+
+            </p>
+
+            <p>
+                {{description}}
+
+            </p>
+
+    </article>
+
+    {{#each pets}}
+
+    <h2>
+        {{name}}
+    </h2>
+    <h2>
+        {{birth}}
+    </h2>
+    <h2>
+        {{descriptions}}
+    </h2>
+
+    {{/each}}
+
+    {{!-- <div>
+        <form action="/movies/{{id}}/delete" method="POST">
+            <button class="btn btn-sm btn-dark" type="submit">Eliminar</button>
+        </form>
+        <br>
+        <a class="btn btn-md btn-info" href="/movies/{{id}}/edit">Editar</a>
+
+    </div> --}}
