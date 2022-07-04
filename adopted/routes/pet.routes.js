@@ -27,12 +27,12 @@ router.get('/crear', isLoggedIn, isOwner, (req, res) => {
 })
 
 router.post('/crear', isLoggedIn, isOwner, (req, res, next) => {
-    const { name, birth, description, avatar } = req.body
-
+    const { name, birth, description, avatar, cast } = req.body
+    console.log(req.body)
     Pet
-        .create({ name, birth, description, avatar })
+        .create({ name, birth, description, avatar, cast })
         .then(() => {
-            res.redirect('perros/lista')
+            res.redirect('lista')
         })
         .catch(error => next(new Error(error)))
 })
@@ -47,7 +47,7 @@ router.get('/:id', (req, res) => {
         .populate('cast')
         .populate('owner')
         .then(pets => {
-            //console.log("Este es el console log", pets)
+            console.log("Este es el console log", pets)
             res.render('pets/details', pets)
         })
         .catch(error => next(new Error(error)))
