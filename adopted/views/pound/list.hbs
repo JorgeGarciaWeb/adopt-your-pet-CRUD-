@@ -1,0 +1,22 @@
+<div class="container">
+
+    <h1>Albergues disponibles</h1>
+
+    <hr>
+
+    {{#each pound}}
+
+    <a href="/albergue/lista">
+        <h5>name: {{name}}</h5>
+
+        <h5>description: {{description}}</h5>
+
+        <h5>latitud {{location.coordinates.[0]}}</h5>
+
+        <h5>longitud {{location.coordinates.[1]}}</h5>
+
+    </a>
+    <br>
+    {{/each}}
+
+</div>
