@@ -2,7 +2,7 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-img{
+img {
   width: 100%;
 
 
@@ -27,7 +27,14 @@ img{
   height: 100vh;
 }
 
+<<<<<<< HEAD
 .photos{
   position:absolute;
   height: 60%;
+=======
+.photos {
+  height: 250px;
+  width: 250px;
+  object-fit: cover;
+>>>>>>> 882574f35bdbe5b88f8da314b95a61566ecb77a3
 }
