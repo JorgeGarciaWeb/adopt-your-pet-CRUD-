@@ -5,7 +5,7 @@
 
             <hr>
 
-            <form method="POST" action="/perros/crear">
+            <form action="/perros/crear" method="POST">
                 <div class="mb-3">
                     <label>Name
                         <input name="name" type="text">
@@ -37,7 +37,7 @@
                         {{#each pounds}}
                         <option value={{id}}>{{name}}</option>
                         {{/each}}
-                
+
                     </select>
                 </div>
 

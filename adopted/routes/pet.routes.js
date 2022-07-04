@@ -41,7 +41,7 @@ router.post('/crear', isLoggedIn, isOwner, (req, res, next) => {
 
 router.get('/:id', (req, res) => {
     const { id } = req.params
-    //console.log("Antes del cast ->>>>>>>>>>>>>>>>", id)
+
     Pet
         .findById(id)
         .populate('cast')
@@ -52,10 +52,5 @@ router.get('/:id', (req, res) => {
         })
         .catch(error => next(new Error(error)))
 }),
-
-
-
-
-
 
     module.exports = router
