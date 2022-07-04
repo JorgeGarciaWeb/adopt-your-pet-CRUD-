@@ -3,6 +3,8 @@ const Pet = require('../models/Pet.models')
 const Pound = require('../models/Pound.models')
 const { isLoggedIn, isOwner, isAdmin } = require("../error-handling/middleware/session-guard")
 
+
+
 //LIST
 router.get('/lista', (req, res, next) => {
 
@@ -16,7 +18,13 @@ router.get('/lista', (req, res, next) => {
 
 //CREATE
 
-router.get('/crear', isLoggedIn, isOwner, (req, res) => res.render('pets/create'))
+router.get('/crear', isLoggedIn, isOwner, (req, res) => {
+    Pound
+        .find()
+        .then((pounds) => {
+            res.render("pets/create", { pounds });
+        });
+})
 
 router.post('/crear', isLoggedIn, isOwner, (req, res, next) => {
     const { name, birth, description, avatar } = req.body

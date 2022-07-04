@@ -32,9 +32,21 @@
                 </div>
 
                 <div class="mb-3">
+                    <label for="cast" class="form-label">Seleccionar</label>
+                    <select name="cast" class="form-select">
+                        {{#each pounds}}
+                        <option value={{id}}>{{name}}</option>
+                        {{/each}}
+                
+                    </select>
+                </div>
+
+                <div class="mb-3">
                     <input type="submit" value="Registrar perro">
 
             </form>
+
+
 
         </div>
 

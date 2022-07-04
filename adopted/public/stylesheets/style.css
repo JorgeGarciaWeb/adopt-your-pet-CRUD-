@@ -5,6 +5,7 @@ body {
 img{
   width: 100%;
 
+
 }
 
 
@@ -28,4 +29,5 @@ img{
 
 .photos{
   position:absolute;
+  height: 60%;
 }
