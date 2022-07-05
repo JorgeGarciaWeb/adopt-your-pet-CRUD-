@@ -11,15 +11,6 @@ router.post('/contacto', (req, res, next) => {
 
     transporter
         .sendMail({
-<<<<<<< HEAD
-            from: `"Email de ${name}" adoptedyourpet@outlook.es`,
-            to: email,
-            subject: subject,
-            text: message,
-            html: `<b>${message}</b>`
-        })
-        .then(details => res.send(details))
-=======
             from: "adoptedyourpet@outlook.es",
             to: email,
             subject: subject,
@@ -27,7 +18,6 @@ router.post('/contacto', (req, res, next) => {
 
         })
         .then(details => res.redirect('/'))
->>>>>>> 14c0d2ba95e0c61aed82f7b18566888154bccb92
         .catch(error => next(new Error(error)))
 
 })

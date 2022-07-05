@@ -5,7 +5,7 @@
 
             <hr>
 
-            <form action="/perros/crear" method="POST">
+            <form action="/perros/crear" method="POST" enctype="multipart/form-data">
                 <div class="mb-3">
                     <label>Name
                         <input name="name" type="text">
@@ -25,8 +25,8 @@
                 </div>
 
                 <div class="mb-3">
-                    <label>URL Foto
-                        <input name="avatar" type="text">
+                    <label>
+                        <input name="avatar" type="file">
                     </label>
 
                 </div>
