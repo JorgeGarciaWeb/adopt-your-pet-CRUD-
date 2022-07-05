@@ -8,9 +8,7 @@ router.get('/lista', (req, res, next) => {
 
     Pound
         .find()
-        .then(pound => {
-            res.render('pound/list', { pound })
-        })
+        .then(pound => res.render('pound/list', { pound }))
         .catch(error => next(new Error(error)))
 })
 

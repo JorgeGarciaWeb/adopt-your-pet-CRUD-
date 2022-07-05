@@ -4,9 +4,10 @@ body {
 
 img {
   width: 100%;
-
+  height: auto;
 
 }
+
 
 
 .error {
@@ -27,15 +28,22 @@ img {
   height: 100vh;
 }
 
+<<<<<<< HEAD
 .photos{
   position:absolute;
   height: 60%;
+=======
+.photos {
+
+  width: 100%;
+>>>>>>> f6a226bbe97b73c4bea51659b3c3d47554e65ecc
 }
 
 #myMap {
-
   margin-bottom: 50px;
   height: 50vh;
+
+
 }
 
 .card-body {

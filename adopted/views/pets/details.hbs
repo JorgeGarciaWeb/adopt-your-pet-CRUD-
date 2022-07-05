@@ -1,26 +1,41 @@
 <div class="container">
     <h2>
-        {{name}}
+        {{pets.name}}
     </h2>
     <h2>
-        {{birth}}
+        {{pets.birth}}
     </h2>
     <h2>
-        {{description}}
+        {{pets.description}}
     </h2>
     <h3>
-      Albergue al que pertenece:  {{cast.name}}
+        Albergue al que pertenece: {{pets.cast.name}}
     </h3>
     <h3>
-       Dueño del albergue: {{owner.username}}
+        Dueño del albergue: {{pets.owner.username}}
     </h3>
 
+<<<<<<< HEAD
     <a class="btn btn-sm btn-danger" href="/perros/editar/{{id}}">Editar</a>
+=======
+    {{#if roles.isOwner}}
+
+
+>>>>>>> f6a226bbe97b73c4bea51659b3c3d47554e65ecc
     <div>
-        <form action="/perros/borrar/{{id}}" method="POST">
+        <a class="btn btn-sm btn-danger" href="/perros/editar/{{pets.id}}">Editar</a>
+        <form action="/perros/borrar/{{pets.id}}" method="POST">
             <button class="btn btn-sm btn-dark" type="submit">Eliminar</button>
         </form>
 
+
     </div>
 
+<<<<<<< HEAD
+=======
+    {{/if}}
+
+
+
+>>>>>>> f6a226bbe97b73c4bea51659b3c3d47554e65ecc
 </div>
