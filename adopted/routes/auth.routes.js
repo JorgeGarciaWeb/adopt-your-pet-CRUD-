@@ -3,7 +3,7 @@ const router = require("express").Router();
 const bcryptjs = require('bcryptjs')
 const User = require("../models/User.model")
 const saltRounds = 10
-const { isLoggedIn, isLoggedOut } = require("../error-handling/middleware/session-guard")
+const { isLoggedIn, isLoggedOut } = require("../middleware/session-guard")
 
 
 //SIGNUP
@@ -12,7 +12,7 @@ router.get('/registro', isLoggedOut, (req, res, next) => res.render("auth/signup
 router.post('/registro', isLoggedOut, (req, res, next) => {
 
     const { username, email, avatar, password: userPassword } = req.body
-    console.log(avatar)
+
     if (email.length === 0 || userPassword.length === 0) {
         res.render('auth/signup', { errorMessage: 'Los campos son obligatorios' })
         return
@@ -59,7 +59,6 @@ router.post('/iniciar-sesion', isLoggedOut, (req, res, next) => {
 
 //LOG-OUT
 router.post('/cerrar-sesion', (req, res) => {
-
     req.session.destroy()
     res.redirect('/')
 })

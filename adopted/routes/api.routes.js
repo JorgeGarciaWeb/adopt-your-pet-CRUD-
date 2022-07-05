@@ -7,7 +7,7 @@ router.get('/pound', (req, res) => {
     Pound
         .find()
         .then(maps => res.json(maps))
-        .catch(err => res.json({ Message: 'error de servidor', err }))
+        .catch(err => res.status(500).json({ message: 'error de servidor', err }))
 })
 
 module.exports = router

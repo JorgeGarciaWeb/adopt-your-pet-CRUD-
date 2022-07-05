@@ -1,19 +1,13 @@
 const isLoggedIn = (req, res, next) => {
 
     !req.session.currentUser ? res.render('auth/login', { errorMessage: 'Desautotizado' }) : next()
-    // if (!req.session.currentUser) {
-    //     return res.render('auth/login', { errorMessage: 'Desautotizado' })
-    // }
-    // next()
+
 }
 
 const isLoggedOut = (req, res, next) => {
 
     req.session.currentUser ? res.redirect('/') : next()
-    // if (req.session.currentUser) {
-    //     return res.redirect('/')
-    // }
-    // next()
+
 }
 
 const isAdmin = (req, res, next) => {

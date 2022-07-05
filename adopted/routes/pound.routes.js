@@ -1,7 +1,7 @@
 const router = require("express").Router();
 
 const Pound = require("../models/Pound.models")
-const { isLoggedIn, isLoggedOut, isAdmin } = require("../error-handling/middleware/session-guard")
+const { isLoggedIn, isLoggedOut, isAdmin } = require("../middleware/session-guard")
 
 //POUND LIST 
 router.get('/lista', (req, res, next) => {
