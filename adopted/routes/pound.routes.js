@@ -33,7 +33,7 @@ router.post('/crear', (req, res, next) => {
 })
 
 //DETAILS POUND
-router.get('/:id', (req, res) => {
+router.get('/:id', (req, res, next) => {
 
     const { id } = req.params
 

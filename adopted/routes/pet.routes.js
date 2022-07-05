@@ -10,21 +10,19 @@ router.get('/lista', (req, res, next) => {
 
     Pet
         .find()
-        .then(dogs => {
-            res.render("pets/list", { dogs })
-        })
+        .then(dogs => res.render("pets/list", { dogs }))
         .catch(error => next(new Error(error)))
 })
 
 //CREATE
 
-router.get('/crear', isLoggedIn, isOwner, (req, res) => {
+router.get('/crear', isLoggedIn, isOwner, (req, res, next) => {
     Pound
         .find()
-        .then((pounds) => {
-            res.render("pets/create", { pounds });
+        .then((pounds) => res.render("pets/create", { pounds }))
+        .catch (error => next(new Error(error)))
         });
-})
+
 
 router.post('/crear', isLoggedIn, isOwner, (req, res, next) => {
     const { name, birth, description, avatar, cast } = req.body
@@ -33,9 +31,7 @@ router.post('/crear', isLoggedIn, isOwner, (req, res, next) => {
 
     Pet
         .create({ name, birth, description, avatar, cast, owner })
-        .then(() => {
-            res.redirect('lista')
-        })
+        .then(() => res.redirect('lista'))
         .catch(error => next(new Error(error)))
 })
 
@@ -48,27 +44,16 @@ router.get('/:id', (req, res, next) => {
         .findById(id)
         .populate('cast')
         .populate('owner')
-        .then(pets => {
-<<<<<<< HEAD
-            console.log(pets)
-=======
-
->>>>>>> dcd4b342ecc6921e2587fe4d281513c014e28432
-            res.render('pets/details', pets)
-        })
+        .then(pets =>res.render('pets/details', pets))
         .catch(error => next(new Error(error)))
 }),
 
     //EDIT
-    router.get('/editar/:id', (req, res, next) => {
+    router.get('/editar/:id', isLoggedIn, isOwner, isAdmin, (req, res, next) => {
 
         const { id } = req.params
         Pet
             .findById(id)
-<<<<<<< HEAD
-=======
-
->>>>>>> dcd4b342ecc6921e2587fe4d281513c014e28432
             .then(pet => {
                 Pound
                     .find()
@@ -84,36 +69,22 @@ router.post('/editar/:id', (req, res, next) => {
 
     const { id } = req.params
     const { name, birth, description, avatar, cast } = req.body
-    console.log(req.body)
 
     Pet
         .findByIdAndUpdate(id, { name, birth, description, avatar, cast })
-        .then(() => {
-            res.redirect('/perros/lista')
-        })
+        .then(() =>res.redirect('/perros/lista'))
         .catch(error => next(new Error(error)))
 
 })
 
 //DELETE
 
-router.post("/borrar/:id", (req, res, next) => {
+router.post("/borrar/:id", isLoggedIn, isOwner, isAdmin, (req, res, next) => {
     const { id } = req.params;
 
     Pet.findByIdAndDelete(id)
-        .then(() => {
-            res.redirect("/perros/lista");
-        })
+        .then(() => res.redirect("/perros/lista"))
         .catch(error => next(new Error(error)))
 });
-
-//USER DOGS
-router.get('/mis-perros', (req, res, next) => {
-
-    res.send('Vaaa')
-
-})
-
-
 
 module.exports = router
