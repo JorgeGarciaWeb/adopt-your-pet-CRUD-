@@ -22,6 +22,10 @@ router.post('/contacto', (req, res, next) => {
             html: `<b>${message}</b>`
         })
         .then(details => res.send(details))
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5baf847da12f4da40654e7d527e1fc11a92f6f62
         .catch(error => next(new Error(error)))
 
 })

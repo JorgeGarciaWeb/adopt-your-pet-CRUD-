@@ -2,7 +2,7 @@ let map
 
 function init() {
     renderMap()
-    getCoffeFromDB()
+    getPoundsFromDB()
 
 }
 
@@ -14,7 +14,7 @@ function renderMap() {
 
 }
 
-function getCoffeFromDB() {
+function getPoundsFromDB() {
 
     axios
         .get('/api/pound')

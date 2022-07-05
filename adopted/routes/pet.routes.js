@@ -46,13 +46,25 @@ router.get('/:id', (req, res, next) => {
 
     Pet
         .findById(id)
+<<<<<<< HEAD
         .populate('cast owner')
         .then(pets => res.render('pets/details', pets, roles))
+=======
+        .populate('cast')
+        .populate('owner')
+        .then(pets => res.render('pets/details', { pets, roles }))
+>>>>>>> 5baf847da12f4da40654e7d527e1fc11a92f6f62
         .catch(error => next(new Error(error)))
 })
 
+<<<<<<< HEAD
 //EDIT
 router.get('/editar/:id', isLoggedIn, isOwner, isAdmin, (req, res, next) => {
+=======
+
+    //EDIT
+    router.get('/editar/:id', isLoggedIn, isOwner, isAdmin, (req, res, next) => {
+>>>>>>> 5baf847da12f4da40654e7d527e1fc11a92f6f62
 
     const { id } = req.params
 
