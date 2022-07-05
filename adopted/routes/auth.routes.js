@@ -10,8 +10,8 @@ router.get('/registro', isLoggedOut, (req, res, next) => res.render("auth/signup
 
 router.post('/registro', isLoggedOut, (req, res, next) => {
 
-    const { username, email, profileImg, password: userPassword } = req.body
-
+    const { username, email, avatar, password: userPassword } = req.body
+    console.log(avatar)
     if (email.length === 0 || userPassword.length === 0) {
         res.render('auth/signup', { errorMessage: 'Los campos son obligatorios' })
         return
@@ -20,7 +20,7 @@ router.post('/registro', isLoggedOut, (req, res, next) => {
     bcryptjs
         .genSalt(saltRounds)
         .then(salt => bcryptjs.hash(userPassword, salt))
-        .then(hashPassword => User.create({ ...req.body, username, email, profileImg, password: hashPassword }))
+        .then(hashPassword => User.create({ ...req.body, username, email, avatar, password: hashPassword }))
         .then(() => res.redirect("/"))
         .catch(error => next(new Error(error)))
 

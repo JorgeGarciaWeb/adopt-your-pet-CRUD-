@@ -27,12 +27,7 @@ img {
   height: 100vh;
 }
 
-<<<<<<< HEAD
 .photos{
   position:absolute;
-=======
-.photos {
-  position: absolute;
->>>>>>> 8292c9f70ab3c0456c475e6059ea4ad52d71ef22
   height: 60%;
 }
