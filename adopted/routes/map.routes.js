@@ -1,4 +1,4 @@
-const router = require("express").Router();
+const router = require("express").Router()
 
 router.get("/list", (req, res, next) => res.render("pound/list"))
 

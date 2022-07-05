@@ -15,13 +15,8 @@
         Dueño del albergue: {{pets.owner.username}}
     </h3>
 
-<<<<<<< HEAD
-    <a class="btn btn-sm btn-danger" href="/perros/editar/{{id}}">Editar</a>
-=======
     {{#if roles.isOwner}}
 
-
->>>>>>> f6a226bbe97b73c4bea51659b3c3d47554e65ecc
     <div>
         <a class="btn btn-sm btn-danger" href="/perros/editar/{{pets.id}}">Editar</a>
         <form action="/perros/borrar/{{pets.id}}" method="POST">
@@ -30,12 +25,5 @@
 
 
     </div>
-
-<<<<<<< HEAD
-=======
     {{/if}}
-
-
-
->>>>>>> f6a226bbe97b73c4bea51659b3c3d47554e65ecc
 </div>

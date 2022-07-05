@@ -1,11 +1,10 @@
 const router = require("express").Router()
+
 const Pet = require('../models/Pet.models')
 const Pound = require('../models/Pound.models')
+
 const { isLoggedIn, isOwner, isAdmin } = require("../middleware/session-guard")
 const { rolesChecker } = require('../utils/roles-checker')
-const { checkRole } = require('../middleware/roles-checker')
-
-
 
 //LIST
 router.get('/lista', (req, res, next) => {
@@ -16,9 +15,19 @@ router.get('/lista', (req, res, next) => {
         .catch(error => next(new Error(error)))
 })
 
+//USER DOGS LISTING
+router.get('/mis-perros', isLoggedIn, (req, res) => {
+
+    const { _id: owner } = req.session.currentUser
+
+    Pet
+        .find({ owner })
+        .then(pets => res.render('user/profile', { pets }))
+        .catch(error => next(new Error(error)))
+})
+
 //CREATE
 router.get('/crear', isLoggedIn, isOwner, (req, res, next) => {
-
     Pound
         .find()
         .then((pounds) => res.render("pets/create", { pounds }))
@@ -27,7 +36,6 @@ router.get('/crear', isLoggedIn, isOwner, (req, res, next) => {
 
 
 router.post('/crear', isLoggedIn, isOwner, (req, res, next) => {
-
     const { name, birth, description, avatar, cast } = req.body
 
     const owner = req.session.currentUser._id
@@ -46,39 +54,27 @@ router.get('/:id', (req, res, next) => {
 
     Pet
         .findById(id)
-<<<<<<< HEAD
         .populate('cast owner')
-        .then(pets => res.render('pets/details', pets, roles))
-=======
-        .populate('cast')
-        .populate('owner')
         .then(pets => res.render('pets/details', { pets, roles }))
->>>>>>> 5baf847da12f4da40654e7d527e1fc11a92f6f62
         .catch(error => next(new Error(error)))
 })
 
-<<<<<<< HEAD
 //EDIT
-router.get('/editar/:id', isLoggedIn, isOwner, isAdmin, (req, res, next) => {
-=======
-
-    //EDIT
-    router.get('/editar/:id', isLoggedIn, isOwner, isAdmin, (req, res, next) => {
->>>>>>> 5baf847da12f4da40654e7d527e1fc11a92f6f62
+router.get('/editar/:id', isLoggedIn, isOwner, (req, res, next) => {
 
     const { id } = req.params
+    Pet
+        .findById(id)
+        .then(pet => {
+            Pound
+                .find()
+                .then(pounds => {
+                    res.render('pets/edit', { pet, pounds })
+                })
 
-    const promises = [
-        Pet.findById(id),
-        Pound.find()
-    ]
-
-    Promise
-        .all(promises)
-        .then(([pet, pounds]) => res.render('pets/edit', { pet, pounds }))
+        })
         .catch(error => next(new Error(error)))
 })
-
 
 router.post('/editar/:id', (req, res, next) => {
 
@@ -93,7 +89,6 @@ router.post('/editar/:id', (req, res, next) => {
 })
 
 //DELETE
-
 router.post("/borrar/:id", isLoggedIn, isOwner, isAdmin, (req, res, next) => {
     const { id } = req.params;
 

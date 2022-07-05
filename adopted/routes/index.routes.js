@@ -1,5 +1,4 @@
-const router = require("express").Router();
-
+const router = require("express").Router()
 
 //AUTH ROUTES
 router.use("/", require("./auth.routes"))
@@ -16,4 +15,4 @@ router.use("/api", require("./api.routes"))
 //BASE ROUTES
 router.use('/', require('./base.routes.js'))
 
-module.exports = router;
+module.exports = router
