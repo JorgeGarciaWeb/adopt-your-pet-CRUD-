@@ -46,27 +46,26 @@ router.get('/:id', (req, res) => {
         .findById(id)
         .populate('cast')
         .then(pets => {
- 
+
             res.render('pets/details', pets)
         })
         .catch(error => next(new Error(error)))
 }),
 
-<<<<<<< HEAD
     //EDIT
-router.get('/editar/:id', (req, res, next) => {
+    router.get('/editar/:id', (req, res, next) => {
 
         const { id } = req.params
         Pet
             .findById(id)
-            
-            .then(pet => { 
+
+            .then(pet => {
                 Pound
-                .find()
-                .then(pounds => {
-                    res.render('pets/edit', {pet, pounds}) 
-                })
-                
+                    .find()
+                    .then(pounds => {
+                        res.render('pets/edit', { pet, pounds })
+                    })
+
             })
             .catch(error => next(new Error(error)))
     })
@@ -104,6 +103,3 @@ router.post("/borrar/:id", (req, res, next) => {
 
 
 module.exports = router
-=======
-    module.exports = router
->>>>>>> 8292c9f70ab3c0456c475e6059ea4ad52d71ef22

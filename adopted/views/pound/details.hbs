@@ -1,0 +1,30 @@
+<div class="container">
+
+    <h1>Detalles del albergue</h1>
+    <hr>
+    <div class="container">
+        <h2>
+            {{name}}
+        </h2>
+        <h2>
+            {{description}}
+        </h2>
+        <h2>
+            {{location.coordinates.[0]}}
+        </h2>
+        <h2>
+            {{location.coordinates.[1]}}
+        </h2>
+    </div>
+
+    <div class="container">
+        <a href="/albergue/{{id}}/editar" class="btn btn-dark btn-sm">Editar albergue</a>
+        <form action="/albergue/{{id}}/eliminar" method="POST" style="display: inline-block">
+            <input type="submit" value="Eliminar" class="btn btn-dark btn-sm">
+        </form>
+
+        <a href="/albergue/lista" class="btn btn-dark btn-sm">Volver al inicio</a>
+
+    </div>
+
+</div>

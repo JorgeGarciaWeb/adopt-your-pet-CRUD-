@@ -14,6 +14,9 @@ router.use("/albergue", require("./pound.routes"))
 //DOGS ROUTES
 router.use("/perros", require("./pet.routes"))
 
+//API ROUTES
+router.use("/api", require("./api.routes"))
+
 module.exports = router;
 
 
