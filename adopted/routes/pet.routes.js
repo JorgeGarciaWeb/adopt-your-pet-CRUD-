@@ -22,8 +22,8 @@ router.get('/crear', isLoggedIn, isOwner, (req, res, next) => {
     Pound
         .find()
         .then((pounds) => res.render("pets/create", { pounds }))
-        .catch (error => next(new Error(error)))
-        });
+        .catch(error => next(new Error(error)))
+});
 
 
 router.post('/crear', isLoggedIn, isOwner, (req, res, next) => {
@@ -48,13 +48,10 @@ router.get('/:id', (req, res, next) => {
         .findById(id)
         .populate('cast')
         .populate('owner')
-<<<<<<< HEAD
-        .then(pets =>res.render('pets/details', pets))
-=======
         .then(pets => res.render('pets/details', { pets, roles }))
->>>>>>> f6a226bbe97b73c4bea51659b3c3d47554e65ecc
         .catch(error => next(new Error(error)))
 }),
+
 
     //EDIT
     router.get('/editar/:id', isLoggedIn, isOwner, isAdmin, (req, res, next) => {
@@ -80,7 +77,7 @@ router.post('/editar/:id', (req, res, next) => {
 
     Pet
         .findByIdAndUpdate(id, { name, birth, description, avatar, cast })
-        .then(() =>res.redirect('/perros/lista'))
+        .then(() => res.redirect('/perros/lista'))
         .catch(error => next(new Error(error)))
 
 })
@@ -95,14 +92,4 @@ router.post("/borrar/:id", isLoggedIn, isOwner, isAdmin, (req, res, next) => {
         .catch(error => next(new Error(error)))
 });
 
-<<<<<<< HEAD
-=======
-//USER DOGS
-router.get('/mis-perros', (req, res, next) => {
-
-    res.send('Vaaa')
-
-})
-
->>>>>>> f6a226bbe97b73c4bea51659b3c3d47554e65ecc
 module.exports = router

@@ -1,3 +1,8 @@
 <div class="container">
-    <h1>Bienvenid@, {{username}}</h1>    
+    <h1>Bienvenid@, {{username}}</h1>
+
+    {{#each dogs}}
+    <p>{{name}} - descripción {{description}}</p>
+    {{/each}}
+
 </div>

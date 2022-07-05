@@ -7,7 +7,7 @@ router.post('/contacto', (req, res, next) => {
 
     const { subject, message, email, name } = req.body
 
-   // console.log(req.body)
+    // console.log(req.body)
 
     transporter
         .sendMail({
@@ -18,7 +18,7 @@ router.post('/contacto', (req, res, next) => {
             html: `<b>${message}</b>`
         })
         .then(details => res.send(details))
-        
+
         .catch(error => next(new Error(error)))
 
 })
