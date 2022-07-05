@@ -2,6 +2,8 @@ const router = require("express").Router()
 const Pet = require('../models/Pet.models')
 const Pound = require('../models/Pound.models')
 const { isLoggedIn, isOwner, isAdmin } = require("../error-handling/middleware/session-guard")
+const { rolesChecker } = require('../utils/roles-checker')
+const { checkRole } = require('../error-handling/middleware/roles-checker')
 
 
 
@@ -42,20 +44,15 @@ router.post('/crear', isLoggedIn, isOwner, (req, res, next) => {
 //DETAILS
 
 router.get('/:id', (req, res, next) => {
+
     const { id } = req.params
+    const roles = rolesChecker(req.session.currentUser)
 
     Pet
         .findById(id)
         .populate('cast')
         .populate('owner')
-        .then(pets => {
-<<<<<<< HEAD
-            console.log(pets)
-=======
-
->>>>>>> dcd4b342ecc6921e2587fe4d281513c014e28432
-            res.render('pets/details', pets)
-        })
+        .then(pets => res.render('pets/details', { pets, roles }))
         .catch(error => next(new Error(error)))
 }),
 
@@ -65,10 +62,6 @@ router.get('/:id', (req, res, next) => {
         const { id } = req.params
         Pet
             .findById(id)
-<<<<<<< HEAD
-=======
-
->>>>>>> dcd4b342ecc6921e2587fe4d281513c014e28432
             .then(pet => {
                 Pound
                     .find()
@@ -113,7 +106,5 @@ router.get('/mis-perros', (req, res, next) => {
     res.send('Vaaa')
 
 })
-
-
 
 module.exports = router

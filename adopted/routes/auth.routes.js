@@ -5,6 +5,7 @@ const User = require("../models/User.model")
 const saltRounds = 10
 const { isLoggedIn, isLoggedOut } = require("../error-handling/middleware/session-guard")
 
+
 //SIGNUP
 router.get('/registro', isLoggedOut, (req, res, next) => res.render("auth/signup"))
 
@@ -62,7 +63,5 @@ router.post('/cerrar-sesion', (req, res) => {
     req.session.destroy()
     res.redirect('/')
 })
-
-
 
 module.exports = router;
