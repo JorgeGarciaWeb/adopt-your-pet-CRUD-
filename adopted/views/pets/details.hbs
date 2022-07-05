@@ -15,6 +15,11 @@
         Dueño del albergue: {{pets.owner.username}}
     </h3>
 
+<<<<<<< HEAD
+=======
+    {{#if roles.isOwner}}
+
+>>>>>>> 14c0d2ba95e0c61aed82f7b18566888154bccb92
     <div>
         <a class="btn btn-sm btn-danger" href="/perros/editar/{{pets.id}}">Editar</a>
         <form action="/perros/borrar/{{pets.id}}" method="POST">
@@ -23,5 +28,9 @@
 
 
     </div>
+<<<<<<< HEAD
 
+=======
+    {{/if}}
+>>>>>>> 14c0d2ba95e0c61aed82f7b18566888154bccb92
 </div>

@@ -1,7 +1,8 @@
-const router = require("express").Router();
+const router = require("express").Router()
 
 const Pound = require("../models/Pound.models")
 const { isLoggedIn, isLoggedOut, isAdmin } = require("../middleware/session-guard")
+const { rolesChecker } = require('../utils/roles-checker')
 
 //POUND LIST 
 router.get('/lista', (req, res, next) => {
@@ -11,6 +12,7 @@ router.get('/lista', (req, res, next) => {
         .then(pound => res.render('pound/list', { pound }))
         .catch(error => next(new Error(error)))
 })
+
 
 //POUND CREATE
 router.get('/crear', isLoggedIn, isAdmin, (req, res, next) => res.render('pound/create'))
@@ -34,10 +36,11 @@ router.post('/crear', (req, res, next) => {
 router.get('/:id', (req, res, next) => {
 
     const { id } = req.params
+    const roles = rolesChecker(req.session.currentUser)
 
     Pound
         .findById(id)
-        .then(pound => res.render('pound/details', pound))
+        .then(pound => res.render('pound/details', { pound, roles }))
         .catch(error => next(new Error(error)))
 })
 
@@ -84,4 +87,4 @@ router.post('/:id/eliminar', (req, res, next) => {
         .catch(error => next(new Error(error)))
 })
 
-module.exports = router;
+module.exports = router
