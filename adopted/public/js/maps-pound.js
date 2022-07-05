@@ -9,7 +9,7 @@ function init() {
 function renderMap() {
     map = new google.maps.Map(
         document.querySelector('#myMap'),
-        { zoom: 14, center: { lat: 40.43003011279524, lng: -3.7015183281091586 }, styles: mapStyles.aubergine }
+        { zoom: 10, center: { lat: 40.43003011279524, lng: -3.7015183281091586 }, styles: mapStyles.aubergine }
     )
 
 }

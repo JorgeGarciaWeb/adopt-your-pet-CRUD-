@@ -5,11 +5,6 @@ const Pound = require('../models/Pound.models')
 
 const { isLoggedIn, isOwner, isAdmin } = require("../middleware/session-guard")
 const { rolesChecker } = require('../utils/roles-checker')
-<<<<<<< HEAD
-// const { formatDays } = require('../utils/format-day')
-
-=======
->>>>>>> 14c0d2ba95e0c61aed82f7b18566888154bccb92
 
 //LIST
 router.get('/lista', (req, res, next) => {
@@ -65,23 +60,18 @@ router.get('/:id', (req, res, next) => {
 })
 
 //EDIT
-<<<<<<< HEAD
 router.get('/editar/:id', isLoggedIn, isOwner, isAdmin, (req, res, next) => {
-=======
-router.get('/editar/:id', isLoggedIn, isOwner, (req, res, next) => {
->>>>>>> 14c0d2ba95e0c61aed82f7b18566888154bccb92
 
     const { id } = req.params
-    Pet
-        .findById(id)
-        .then(pet => {
-            Pound
-                .find()
-                .then(pounds => {
-                    res.render('pets/edit', { pet, pounds })
-                })
 
-        })
+    const promises = [
+        Pet.findById(id),
+        Pound.find()
+    ]
+
+    Promise
+        .all(promises)
+        .then(([pet, pounds]) => res.render('pets/edit', { pet, pounds }))
         .catch(error => next(new Error(error)))
 })
 
