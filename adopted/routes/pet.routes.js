@@ -3,10 +3,13 @@ const Pet = require('../models/Pet.models')
 const Pound = require('../models/Pound.models')
 const { isLoggedIn, isOwner, isAdmin } = require("../middleware/session-guard")
 const { rolesChecker } = require('../utils/roles-checker')
+<<<<<<< HEAD
 const { checkRole } = require('../middleware/roles-checker')
 const uploaderConfig = require('./../config/uploader.config')
 
 
+=======
+>>>>>>> 9b52ebd4e8dea486c4da99b73b2685e427b38dbe
 
 //LIST
 router.get('/lista', (req, res, next) => {
@@ -54,7 +57,11 @@ router.get('/:id', (req, res, next) => {
 })
 
 //EDIT
+<<<<<<< HEAD
 router.get('/editar/:id', isLoggedIn, isOwner, (req, res, next) => {
+=======
+router.get('/editar/:id', isLoggedIn, isOwner, isAdmin, (req, res, next) => {
+>>>>>>> 9b52ebd4e8dea486c4da99b73b2685e427b38dbe
 
     const { id } = req.params
 
