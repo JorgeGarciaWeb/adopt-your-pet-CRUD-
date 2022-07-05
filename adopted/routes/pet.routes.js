@@ -49,7 +49,11 @@ router.get('/:id', (req, res, next) => {
         .populate('cast')
         .populate('owner')
         .then(pets => {
+<<<<<<< HEAD
             console.log(pets)
+=======
+
+>>>>>>> dcd4b342ecc6921e2587fe4d281513c014e28432
             res.render('pets/details', pets)
         })
         .catch(error => next(new Error(error)))
@@ -61,6 +65,10 @@ router.get('/:id', (req, res, next) => {
         const { id } = req.params
         Pet
             .findById(id)
+<<<<<<< HEAD
+=======
+
+>>>>>>> dcd4b342ecc6921e2587fe4d281513c014e28432
             .then(pet => {
                 Pound
                     .find()

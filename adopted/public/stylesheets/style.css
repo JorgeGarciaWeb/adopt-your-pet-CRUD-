@@ -27,7 +27,22 @@ img {
   height: 100vh;
 }
 
+<<<<<<< HEAD
 .photos{
   position:absolute;
+=======
+.photos {
+  position: absolute;
+>>>>>>> dcd4b342ecc6921e2587fe4d281513c014e28432
   height: 60%;
+}
+
+#myMap {
+
+  margin-bottom: 50px;
+  height: 50vh;
+}
+
+.card-body {
+  height: 30%;
 }

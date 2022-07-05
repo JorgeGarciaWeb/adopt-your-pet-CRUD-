@@ -32,6 +32,19 @@ router.post('/crear', (req, res, next) => {
         .catch(error => next(new Error(error)))
 })
 
+//DETAILS POUND
+router.get('/:id', (req, res) => {
+
+    const { id } = req.params
+
+    Pound
+        .findById(id)
+        .then(pound => res.render('pound/details', pound))
+        .catch(error => next(new Error(error)))
+})
+
+
+
 //EDIT POUND
 router.get('/:id/editar', (req, res, next) => {
 
@@ -47,10 +60,16 @@ router.get('/:id/editar', (req, res, next) => {
 router.post('/:id/editar', (req, res, next) => {
 
     const { name, description, latitude, longitude } = req.body
+
+    const location = {
+        type: 'Point',
+        coordinates: [latitude, longitude]
+    }
+
     const { id } = req.params
 
     Pound
-        .findByIdAndUpdate(id, { name, description, latitude, longitude })
+        .findByIdAndUpdate(id, { name, description, location })
         .then(() => res.redirect('/albergue/lista'))
         .catch(error => next(new Error(error)))
 

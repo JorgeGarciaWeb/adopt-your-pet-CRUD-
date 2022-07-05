@@ -2,30 +2,41 @@
     <h1>Albergues disponibles</h1>
     <hr>
     <div class="row">
+        <!--POUND LIST-->
         {{#each pound}}
         <div class="col md-4">
             <div class="card" style="width: 18rem;">
                 <div class="card-body">
                     <h5 class="card-title">{{name}}</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">{{description}}</h6>
+                    <h6 class="card-subtitle mb-4 text-muted">{{description}}</h6>
                     <a href="/" class="card-link">{{location.coordinates.[0]}}</a>
                     <a href="/" class="card-link">{{location.coordinates.[1]}}</a>
+
+                    <div>
+                        <br>
+                        <a href="/albergue/{{id}}" class="btn btn-dark btn-sm">Ver detalle</a>
+                        <a href="/" class="btn btn-dark btn-sm">Volver al inicio</a>
+                    </div>
                 </div>
             </div>
         </div>
-
-        <a href="/albergue/{{id}}/editar" class="btn-secondary btn-sm">Editar albergue</a>
-        <form action="/albergue/{{id}}/eliminar" method="POST" style="display: inline-block">
-            <input type="submit" value="Eliminar" class="btn btn-dark btn-sm">
-        </form>
-        <div class="btn-return">
-
-            <a href="/" class="btn btn-home">Volver al inicio</a>
-
-        </div>
-        </form>
-
         {{/each}}
+
+        <!--MAP DIV-->
+        <div id="myMap"></div>
+
+        <!--AXIOS SCRIPT-->
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+        <!--MAP SCRIPT-->
+        <script src="/js/maps-pound.js"></script>
+        <script src="/js/maps-styles.js"></script>
+
+
+        <!--API KEY GOOGLE-->
+        <script
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCwg1t-8kqR7GFNEiPlrtKF1eWrGB5GZ5E&callback=init"></script>
 
     </div>
 </div>
