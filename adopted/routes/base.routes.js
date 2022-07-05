@@ -15,17 +15,13 @@ router.post('/contacto', (req, res, next) => {
 
     transporter
         .sendMail({
-            from: `"Email de ${name} " <webmad0522@outlook.es>`,
+            from: `"Email de ${name}" adoptedyourpet@outlook.es`,
             to: email,
             subject: subject,
             text: message,
             html: `<b>${message}</b>`
         })
         .then(details => res.send(details))
-<<<<<<< HEAD
-=======
-
->>>>>>> 5baf847da12f4da40654e7d527e1fc11a92f6f62
         .catch(error => next(new Error(error)))
 
 })
