@@ -6,15 +6,23 @@ const { rolesChecker } = require('../utils/roles-checker')
 const { formatDay } = require('../utils/format-day')
 const { checkRole } = require('../middleware/roles-checker')
 const uploaderConfig = require('./../config/uploader.config')
-
-
+const formatDate = require('./../utils/format-day')
 
 //LIST
 router.get('/lista', (req, res, next) => {
 
     Pet
         .find()
-        .then(dogs => res.render("pets/list", { dogs }))
+        .then(dogs => {
+            let allFormatedDogs = []
+
+            dogs.forEach(dog => {
+                let formatedDate = formatDate(dog.birth)
+                let formatedDog = { ...dog._doc, birth: formatedDate }
+                allFormatedDogs.push(formatedDog)
+            })
+            res.render("pets/list", { allFormatedDogs })
+        })
         .catch(error => next(new Error(error)))
 })
 
@@ -36,8 +44,7 @@ router.get('/crear', isLoggedIn, isOwner, (req, res, next) => {
         .find()
         .then((pounds) => res.render("pets/create", { pounds }))
         .catch(error => next(new Error(error)))
-});
-
+})
 
 router.post('/crear', isLoggedIn, isOwner, uploaderConfig.single('avatar'), (req, res, next) => {
 
@@ -100,7 +107,6 @@ router.post('/editar/:id', isOwner, uploaderConfig.single('avatar'), (req, res, 
 })
 
 //DELETE
-
 router.post("/borrar/:id", isLoggedIn, isOwner, isAdmin, (req, res, next) => {
     const { id } = req.params;
 

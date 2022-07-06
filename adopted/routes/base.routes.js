@@ -29,11 +29,19 @@ router.post('/contacto/:id', (req, res, next) => {
 
     transporter
         .sendMail({
-            from: "<adoptedyourpet@outlook.es>",
+            from: "<adoptatuperro2022@gmail.com>",
             to: ownerEmail,
             subject: subject,
             text: message,
-
+            html: ` 
+           <div> 
+           <p>Hola humano!</p> 
+           <p>Tu solicitud está en tramite</p> 
+           <p>Pronto tendras noticias del albergue! </p> 
+           <hr>
+           <p>Albergues de España </p>
+           </div> 
+       `
         })
         .then(() => res.redirect('perros/lista'))
         .catch(error => next(new Error(error)))
