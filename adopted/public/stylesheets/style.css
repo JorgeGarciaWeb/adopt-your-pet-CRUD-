@@ -44,3 +44,9 @@ img {
   height: 100%;
   
 }
+
+.fondo{
+  background-image: url(../images/fondoHuellas.png) ;
+  background-size: cover;
+  background-repeat: no-repeat;
+}

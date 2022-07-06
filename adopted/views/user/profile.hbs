@@ -1,15 +1,16 @@
 <div class="container">
     <h1>Bienvenid@, {{user.username}}</h1>
+    <figure class="card" style="width: 18rem">
+        <img src="{{user.avatar}}" class="card-img-top">
+    </figure>
 
     {{#each pets}}
     <p>Raza <br>{{name}} </p>
     <p>Descripción <br>{{description}}</p>
-
-    <a href="/albergue/formulario-adopcion/{{id}}" class="btn btn-dark btn-sm">Aceptar adopción</a>
     <hr>
 
     {{/each}}
 
-
+</div>
 
 </div>

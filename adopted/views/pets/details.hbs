@@ -1,29 +1,33 @@
-<div class="container">
-    <h2>
-        {{pets.name}}
-    </h2>
-    <h2>
-        {{pets.birth}}
-    </h2>
-    <h2>
-        {{pets.description}}
-    </h2>
-    <h3>
-        Albergue al que pertenece: {{pets.cast.name}}
-    </h3>
-    <h3>
-        Dueño del albergue: {{pets.owner.username}}
-    </h3>
+<section class="fondo">
 
-    {{#if roles.isOwner}}
+    <div class="container">
 
-    <div>
-        <a class="btn btn-sm btn-danger" href="/perros/editar/{{pets.id}}">Editar</a>
-        <form action="/perros/borrar/{{pets.id}}" method="POST">
-            <button class="btn btn-sm btn-dark" type="submit">Eliminar</button>
-        </form>
+        <h2>
+            {{pets.name}}
+        </h2>
+        <h2>
+          
+          Fecha de nacimiento:  {{formatDay}}
+        </h2>
+        <h2>
+            {{pets.description}}
+        </h2>
+        <h3>
+            Albergue al que pertenece: {{pets.cast.name}}
+        </h3>
+        <h3>
+            Dueño: {{pets.owner.username}}
+        </h3>
 
+        {{#if roles.isOwner}}
 
+        <div>
+            <a href="/albergue/formulario-adopcion/{{pets._id}}" class="btn btn-dark btn-sm">Aceptar adopción</a>
+            <a class="btn btn-sm btn-danger" href="/perros/editar/{{pets.id}}">Editar</a>
+            <form action="/perros/borrar/{{pets.id}}" method="POST">
+                <button class="btn btn-sm btn-dark" type="submit">Eliminar</button>
+            </form>
+        </div>
+        {{/if}}
     </div>
-    {{/if}}
-</div>
+</section>

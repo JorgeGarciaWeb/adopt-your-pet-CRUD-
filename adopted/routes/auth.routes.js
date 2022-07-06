@@ -5,14 +5,15 @@ const User = require("../models/User.model")
 const Pet = require('../models/Pet.models')
 const saltRounds = 10
 const { isLoggedOut } = require("../middleware/session-guard")
+const uploaderConfig = require('./../config/uploader.config')
 
 
 //SIGNUP
 router.get('/registro', isLoggedOut, (req, res, next) => res.render("auth/signup"))
 
-router.post('/registro', isLoggedOut, (req, res, next) => {
+router.post('/registro', isLoggedOut, uploaderConfig.single("avatar"), (req, res, next) => {
 
-    const { username, email, avatar, password: userPassword } = req.body
+    const { username, email, password: userPassword } = req.body
 
     if (email.length === 0 || userPassword.length === 0) {
         res.render('auth/signup', { errorMessage: 'Los campos son obligatorios' })
@@ -22,12 +23,11 @@ router.post('/registro', isLoggedOut, (req, res, next) => {
     bcryptjs
         .genSalt(saltRounds)
         .then(salt => bcryptjs.hash(userPassword, salt))
-        .then(hashPassword => User.create({ ...req.body, username, email, avatar, password: hashPassword }))
+        .then(hashPassword => User.create({ ...req.body, username, email, avatar: req.file.path, password: hashPassword }))
         .then(() => res.redirect("/"))
         .catch(error => next(new Error(error)))
 
 })
-
 //LOG-IN
 router.get('/iniciar-sesion', isLoggedOut, (req, res, next) => res.render('auth/login'))
 

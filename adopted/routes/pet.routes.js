@@ -64,10 +64,16 @@ router.get('/:id', (req, res, next) => {
     const { id } = req.params
     const roles = rolesChecker(req.session.currentUser)
 
+
     Pet
         .findById(id)
         .populate('cast owner')
-        .then(pets => res.render('pets/details', { pets, roles }))
+        .then(pets => {
+            const formatDay = formatDate(pets.birth)
+
+
+            res.render('pets/details', { pets, roles, formatDay })
+        })
         .catch(error => next(new Error(error)))
 })
 
