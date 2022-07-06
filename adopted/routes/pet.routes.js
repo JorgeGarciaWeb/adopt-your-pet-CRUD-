@@ -3,6 +3,7 @@ const Pet = require('../models/Pet.models')
 const Pound = require('../models/Pound.models')
 const { isLoggedIn, isOwner, isAdmin } = require("../middleware/session-guard")
 const { rolesChecker } = require('../utils/roles-checker')
+const { formatDay } = require('../utils/format-day')
 const { checkRole } = require('../middleware/roles-checker')
 const uploaderConfig = require('./../config/uploader.config')
 
@@ -43,7 +44,6 @@ router.post('/crear', isLoggedIn, isOwner, uploaderConfig.single('avatar'), (req
     const { name, birth, description, cast } = req.body
 
     const owner = req.session.currentUser._id
-    console.log(req.file)
 
     Pet
         .create({ name, birth, description, cast, owner, avatar: req.file.path })

@@ -14,6 +14,7 @@ router.get('/contacto/:id', (req, res, next) => {
         .findById(id)
         .populate('owner')
         .then(editPound => {
+            console.log('---------->>', editPound)
             res.render('page/contact', editPound)
         })
         .catch(error => next(new Error(error)))
@@ -24,6 +25,7 @@ router.post('/contacto/:id', (req, res, next) => {
     const { subject, message, email, ownerEmail } = req.body
     const { id } = req.params
 
+    console.log('---es el correo del owner---', req.session.currentUser)
 
     transporter
         .sendMail({
@@ -33,9 +35,10 @@ router.post('/contacto/:id', (req, res, next) => {
             text: message,
 
         })
-        .then(() => res.redirect('/perros/lista'))
+        .then(() => res.redirect('perros/lista'))
         .catch(error => next(new Error(error)))
 
 })
 
 module.exports = router
+

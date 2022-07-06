@@ -4,7 +4,7 @@ const bcryptjs = require('bcryptjs')
 const User = require("../models/User.model")
 const Pet = require('../models/Pet.models')
 const saltRounds = 10
-const { isLoggedIn, isLoggedOut } = require("../middleware/session-guard")
+const { isLoggedOut } = require("../middleware/session-guard")
 
 
 //SIGNUP

@@ -15,4 +15,7 @@ router.use("/api", require("./api.routes"))
 //BASE ROUTES
 router.use('/', require('./base.routes.js'))
 
+//USER ROUTES
+router.use('/', require('./user.routes.js'))
+
 module.exports = router
