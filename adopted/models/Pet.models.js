@@ -16,7 +16,7 @@ const petSchema = new Schema(
             type: Schema.Types.ObjectId,
             ref: 'Pound'
         },
-        owner:{
+        owner: {
             type: Schema.Types.ObjectId,
             ref: 'User'
         }
