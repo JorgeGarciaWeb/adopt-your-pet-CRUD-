@@ -47,7 +47,7 @@ router.post('/iniciar-sesion', isLoggedOut, (req, res, next) => {
                 return
             }
             if (bcryptjs.compareSync(userPassword, user.password) === false) {
-                res.render('auth/login', { errorMessage: 'Contraseña incorrecto' })
+                res.render('auth/login', { errorMessage: 'Contraseña incorrecta' })
                 return
             }
 

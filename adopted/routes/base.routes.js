@@ -9,7 +9,7 @@ router.get("/", (req, res) => res.render("index"))
 router.get('/contacto/:id', (req, res) => {
 
     const { id } = req.params
-    console.log(id)
+    
     Pet
         .findById(id)
         .populate('owner')
@@ -25,21 +25,13 @@ router.post('/contacto/:id', (req, res, next) => {
 
     transporter
         .sendMail({
-<<<<<<< HEAD
-=======
-
->>>>>>> 9b52ebd4e8dea486c4da99b73b2685e427b38dbe
             from: "adoptedyourpet@outlook.es",
             to: email,
             subject: subject,
             text: message,
 
         })
-<<<<<<< HEAD
-        .then(details => res.redirect('/'))
-=======
         .then(details => res.redirect('perros/lista'))
->>>>>>> 9b52ebd4e8dea486c4da99b73b2685e427b38dbe
         .catch(error => next(new Error(error)))
 
 })
