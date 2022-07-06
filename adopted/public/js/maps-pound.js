@@ -5,8 +5,11 @@ let market
 function init() {
     renderMap()
     getPoundsFromDB()
+    printMarkers()
     getUserLocation()
     setUserLocation()
+    getRouteDetails()
+    renderRoutes()
 
 
 }
@@ -62,3 +65,29 @@ function setUserLocation({ coords }) {
 
 }
 
+function getRouteDetails(info) {
+
+    const directions = new google.maps.DirectionsService()
+
+    const routeDetails = {
+        origin: 'Ironhack Madrid',
+        destination: 'Fabrik Madrid',
+        travelMode: 'DRIVING'
+    }
+
+    directions.route(
+        routeDetails,
+        routeResults => {
+            showRouteInfo(routeResults)
+            renderRoutes(routeResults)
+        }
+    )
+}
+
+function renderRoutes(routeResults) {
+
+    const renderer = new google.maps.DirectionsRenderer()
+
+    renderer.setDirections(routeResults)
+    renderer.setMap(map)
+}
