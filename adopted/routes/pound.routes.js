@@ -1,6 +1,7 @@
 const router = require("express").Router()
-
+const Pet = require('../models/Pet.models')
 const Pound = require("../models/Pound.models")
+const User = require("../models/User.model")
 const { isLoggedIn, isLoggedOut, isAdmin } = require("../middleware/session-guard")
 const { rolesChecker } = require('../utils/roles-checker')
 
@@ -13,6 +14,31 @@ router.get('/lista', (req, res, next) => {
         .catch(error => next(new Error(error)))
 })
 
+//POUND ADOPTED
+router.get('/formulario-adopcion/:id', (req, res, next) => {
+
+    const { id: thisId } = req.params
+
+    User
+        .find()
+        .then(allUsers => res.render('pound/adoption', { allUsers, thisId }))
+        .catch(error => next(new Error(error)))
+})
+router.post('/formulario-adopcion/:id', (req, res, next) => {
+
+    const { name, owner } = req.body
+
+    console.log('soy el owner maybe?', owner)
+
+    const { id } = req.params
+
+    User
+        .findById(owner)
+        .then(user => Pet.findByIdAndUpdate(id, { owner: user._id }))
+        .then(() => res.redirect('/'))
+        .catch(error => next(new Error(error)))
+
+})
 
 //POUND CREATE
 router.get('/crear', isLoggedIn, isAdmin, (req, res, next) => res.render('pound/create'))

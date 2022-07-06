@@ -31,4 +31,15 @@ const isOwner = (req, res, next) => {
         res.render('auth/login', { errorMessage: 'No tienes permisos para registrar perros' })
     }
 }
-module.exports = { isLoggedIn, isLoggedOut, isAdmin, isOwner }
+
+const isUser = (req, res, next) => {
+    const isUser = req.session.currentUser.role === 'USER'
+
+    if (isUser) {
+        next()
+    } else {
+        res.render('auth/login', { errorMessage: 'No tienes permisos para registrar perros' })
+    }
+}
+
+module.exports = { isLoggedIn, isLoggedOut, isAdmin, isOwner, isUser }

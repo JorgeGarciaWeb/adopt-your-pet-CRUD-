@@ -3,15 +3,15 @@
         <h1>Lista de perros</h1>
         <hr>
         <div class="row">
-            {{#each dogs}}
+            {{#each allFormatedDogs}}
             <div class="col md-4">
                 <div class="card" style="width: 18rem;">
                     <div class="card-body">
                         <img src="{{avatar}}" class="card-img-top" alt="Avatar">
                         <h5 class="card-title">{{name}}</h5>
                         <h6 class="card-subtitle mb-2 text-muted">{{birth}}</h6>
-                        <a href="/perros/{{id}}" class="btn btn-info btn-sm">Ver detalle</a>
-                        <a href="/contacto/{{id}}" class="btn btn-success btn-sm">Te quiero adoptar</a>
+                        <a href="/perros/{{_id}}" class="btn btn-info btn-sm">Ver detalle</a>
+                        <a href="/contacto/{{_id}}" class="btn btn-success btn-sm">Te quiero adoptar</a>
                     </div>
                 </div>
                 <hr>

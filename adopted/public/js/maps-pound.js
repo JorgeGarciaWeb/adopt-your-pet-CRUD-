@@ -1,8 +1,13 @@
 let map
 
+let market
+
 function init() {
     renderMap()
     getPoundsFromDB()
+    getUserLocation()
+    setUserLocation()
+
 
 }
 
@@ -34,3 +39,26 @@ function printMarkers(pounds) {
 
     map.setCenter({ lat: pounds[0].location.coordinates[0], lng: pounds[0].location.coordinates[1] })
 }
+
+function getUserLocation() {
+
+    navigator.geolocation.getCurrentPosition(
+        position => setUserLocation(position),
+        error => console.error('Ha habido un problema...', error)
+    )
+}
+
+
+function setUserLocation({ coords }) {
+
+    const { latitude: lat, longitude: lng } = coords
+
+    map.setCenter({ lat, lng })
+
+    new google.maps.Marker({
+        position: { lat, lng },
+        map
+    })
+
+}
+
