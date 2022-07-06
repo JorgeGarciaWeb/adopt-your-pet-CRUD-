@@ -17,6 +17,17 @@ router.get('/lista', (req, res, next) => {
         .catch(error => next(new Error(error)))
 })
 
+//PET LISTING
+router.get('/iniciar-sesion', (req, res, next) => {
+
+    const { _id: owner } = req.session.currentUser
+
+    Pet
+        .find({ owner })
+        .then(pets => res.render('user/profile', { pets }))
+        .catch(error => next(new Error(error)))
+})
+
 //CREATE
 router.get('/crear', isLoggedIn, isOwner, (req, res, next) => {
 
