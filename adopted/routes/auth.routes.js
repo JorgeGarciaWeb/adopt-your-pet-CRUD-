@@ -2,6 +2,7 @@ const router = require("express").Router();
 
 const bcryptjs = require('bcryptjs')
 const User = require("../models/User.model")
+const Pet = require('../models/Pet.models')
 const saltRounds = 10
 const { isLoggedIn, isLoggedOut } = require("../middleware/session-guard")
 
@@ -52,7 +53,15 @@ router.post('/iniciar-sesion', isLoggedOut, (req, res, next) => {
             }
 
             req.session.currentUser = user
-            res.render('user/profile', user)
+
+
+            const { _id: owner } = req.session.currentUser
+
+            Pet
+                .find({ owner })
+                .then(pets => res.render('user/profile', { user, pets }))
+                .catch(error => next(new Error(error)))
+
         })
         .catch(error => next(new Error(error)))
 })
