@@ -3,7 +3,7 @@ const Pet = require('../models/Pet.models')
 const Pound = require('../models/Pound.models')
 const { isLoggedIn, isOwner, isAdmin } = require("../middleware/session-guard")
 const { rolesChecker } = require('../utils/roles-checker')
-const { formatDay } = require('../utils/format-day')
+const formatDay = require('../utils/format-day')
 const { checkRole } = require('../middleware/roles-checker')
 const uploaderConfig = require('./../config/uploader.config')
 const formatDate = require('./../utils/format-day')
@@ -30,6 +30,7 @@ router.get('/lista', (req, res, next) => {
 router.get('/iniciar-sesion', (req, res, next) => {
 
     const { _id: owner } = req.session.currentUser
+
 
     Pet
         .find({ owner })

@@ -27,9 +27,6 @@ router.get('/formulario-adopcion/:id', (req, res, next) => {
 router.post('/formulario-adopcion/:id', (req, res, next) => {
 
     const { name, owner } = req.body
-
-    console.log('soy el owner maybe?', owner)
-
     const { id } = req.params
 
     User
