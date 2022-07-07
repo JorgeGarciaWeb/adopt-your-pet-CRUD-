@@ -85,17 +85,18 @@ footer {
   position: fixed;
   bottom: 0;
   width: 100%;
+  ;
 }
 
 .cool-nav {
-  margin-top: 80px;
+  margin-top: 20px;
+  margin-bottom: 80px;
 }
 
 .imgDetails {
   width: 50%;
 }
 
-.doggy {
-  width: ;
-  object-fit: cover;
+.end-nav {
+  flex-grow: 0
 }
