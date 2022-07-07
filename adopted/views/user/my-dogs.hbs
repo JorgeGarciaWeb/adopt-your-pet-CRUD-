@@ -1,0 +1,50 @@
+<div class="container">
+
+    <h1>Perfil de {{user.username}}</h1>
+    <figure class="card" style="width: 18rem">
+        <img src="{{user.avatar}}" class="card-img-top">
+    </figure>
+
+    {{#if roles.isUser}}
+    <h1>Mis perros</h1>
+    {{#each pet}}
+    <p>Raza <br>{{name}} </p>
+    <p>Descripción <br>{{description}}</p>
+    <hr>
+    {{/each}}
+    <a href="/cambiar-rol/{{user.id}}" class="btn btn-success btn-sm">Solicitar permisos como dueño de un albergue</a>
+    <hr>
+    {{/if}}
+
+    {{#if roles.isOwner}}
+    <h1>Mis perros</h1>
+    {{#each pet}}
+    <p>Raza <br>{{name}} </p>
+    <p>Descripción <br>{{description}}</p>
+    <hr>
+
+    {{/each}}
+    {{/if}}
+
+
+
+    {{#if roles.isAdmin}}
+
+
+    <form action="/edit-role-OWNER" method="POST" style="display: inline-block">
+
+        <div class="mb-3">
+            <label for="newOwner" class="form-label">Seleccionar usuario</label>
+            <select name="newOwner" class="form-select">
+                {{#each newUsersObj}}
+                <option value={{id}}>{{username}}</option>
+                {{/each}}
+
+            </select>
+        </div>
+
+        <button class="btn btn-sm btn-warning">Cambiar role al usuario</button>
+    </form>
+    {{/if}}
+
+</div>

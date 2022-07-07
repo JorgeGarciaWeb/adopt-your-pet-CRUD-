@@ -31,7 +31,7 @@ router.post('/formulario-adopcion/:id', (req, res, next) => {
 
     User
         .findById(owner)
-        .then(user => Pet.findByIdAndUpdate(id, { owner: user._id }))
+        .then(user => Pet.findByIdAndUpdate(id, { owner: user._id, available: false }))
         .then(() => res.redirect('/'))
         .catch(error => next(new Error(error)))
 
@@ -66,8 +66,6 @@ router.get('/:id', (req, res, next) => {
         .then(pound => res.render('pound/details', { pound, roles }))
         .catch(error => next(new Error(error)))
 })
-
-
 
 //EDIT POUND
 router.get('/:id/editar', (req, res, next) => {
@@ -114,16 +112,11 @@ router.post('/:id/eliminar', (req, res, next) => {
 // ADOPTING DOG
 router.get('/formulario-adopcion', (req, res, next) => {
 
-    res.send('Vaa')
-
     User
         .find()
         .then(allUsers => res.render('pound/adoption', allUsers))
         .catch(error => next(new Error(error)))
 
 })
-
-
-
 
 module.exports = router

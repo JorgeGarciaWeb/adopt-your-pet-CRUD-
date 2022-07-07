@@ -1,18 +1,8 @@
-<div class="container cool-nav">
-    <h1>Bienvenid@, {{user.username}}</h1>
+<div class="container">
+    <h1>Bienvenid@ {{user.username}}</h1>
     <figure class="card" style="width: 18rem">
         <img src="{{user.avatar}}" class="card-img-top">
     </figure>
-
-    <h2>Estos son tus perros</h2>
-
-    {{#each pets}}
-    <p>Raza <br>{{name}} </p>
-    <p>Descripción <br>{{description}}</p>
-    <hr>
-
-    {{/each}}
-
 </div>
 
 </div>

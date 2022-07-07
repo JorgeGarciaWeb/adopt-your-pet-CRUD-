@@ -1,11 +1,11 @@
-const router = require("express").Router();
+const router = require("express").Router()
 
 const bcryptjs = require('bcryptjs')
 const User = require("../models/User.model")
 const Pet = require('../models/Pet.models')
 const saltRounds = 10
 const { isLoggedOut } = require("../middleware/session-guard")
-const uploaderConfig = require('./../config/uploader.config')
+
 
 
 //SIGNUP
@@ -53,8 +53,6 @@ router.post('/iniciar-sesion', isLoggedOut, (req, res, next) => {
             }
 
             req.session.currentUser = user
-
-
             const { _id: owner } = req.session.currentUser
 
             Pet
@@ -72,4 +70,4 @@ router.post('/cerrar-sesion', (req, res) => {
     res.redirect('/')
 })
 
-module.exports = router;
+module.exports = router
