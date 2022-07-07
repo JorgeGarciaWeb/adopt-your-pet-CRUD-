@@ -95,7 +95,14 @@ footer {
   width: 50%;
 }
 
-.doggy {
-  width: ;
-  object-fit: cover;
+.photo {
+  background-image: url(../images/huellas.jpg);
+  background-repeat: no-repeat;
+  padding-left: 300px;
+
+
+}
+
+.btn-edit {
+  padding-bottom: 60px;
 }

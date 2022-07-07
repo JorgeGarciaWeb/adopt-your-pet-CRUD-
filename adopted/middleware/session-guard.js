@@ -1,6 +1,6 @@
 const isLoggedIn = (req, res, next) => {
 
-    !req.session.currentUser ? res.render('auth/login', { errorMessage: 'Desautotizado' }) : next()
+    !req.session.currentUser ? res.render('auth/login', { errorMessage: 'Desautorizado' }) : next()
 
 }
 

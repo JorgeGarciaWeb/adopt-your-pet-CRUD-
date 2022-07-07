@@ -19,6 +19,7 @@ router.get('/lista', (req, res, next) => {
             dogs.forEach(dog => {
                 let formatedDate = formatDate(dog.birth)
                 let formatedDog = { ...dog._doc, birth: formatedDate }
+                console.log()
                 allFormatedDogs.push(formatedDog)
             })
             let adoptedDog = allFormatedDogs.filter(elm => elm.available === true)
@@ -96,9 +97,9 @@ router.get('/editar/:id', isLoggedIn, isOwner, (req, res, next) => {
 router.post('/editar/:id', isOwner, uploaderConfig.single('avatar'), (req, res, next) => {
 
     const { id } = req.params
-    const { name, birth, description, cast } = req.body
+    const { name, description, cast } = req.body
 
-    let query = { name, birth, description, cast }
+    let query = { name, description, cast }
 
     if (req.file) {
         query = { ...query, avatar: req.file.path }
