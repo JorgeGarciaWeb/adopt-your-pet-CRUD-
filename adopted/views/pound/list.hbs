@@ -7,12 +7,17 @@
         <div class="col md-4">
             <div class="card" style="width: 18rem;">
                 <div class="card-body" style="height: 300px; object-fit: cover; object-position: top">
-                    <h5 class="card-title">{{name}}</h5>
-                    <h6 class="card-subtitle mb-4 text-muted">{{description}}</h6>
+                    <div style="height: 180px;">
+                        <h5 class="card-title">{{name}}</h5>
+                        <h6 class="card-subtitle mb-4 text-muted">{{description}}</h6>
+                    </div>
+
                     <div>
                         <br>
-                        <a href="/albergue/{{id}}" class="btn btn-dark btn-sm">Ver detalle</a>
-                        <a href="/" class="btn btn-dark btn-sm">Volver al inicio</a>
+                        <div class="btn-list">
+                            <a href="/albergue/{{id}}" class="btn btn-dark btn-sm">Ver detalle</a>
+                            <a href="/" class="btn btn-dark btn-sm">Volver al inicio</a>
+                        </div>
                     </div>
                 </div>
             </div>

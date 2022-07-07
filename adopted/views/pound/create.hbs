@@ -7,21 +7,27 @@
 
             <form method="POST" action="/albergue/crear">
                 <div class="mb-3">
-                    <label>Name
-                        <input name="name" type="text">
-                    </label>
-
+                    <label for="name">Nombre del albergue</label>
+                    <input type="text" class="form-control" id="name" placeholder="nombre" name="name">
                 </div>
                 <div class="mb-3">
-                    <label>Description
-                        <input name="description" type="text">
-                    </label>
+                    <label for="description">Descripción del albergue</label>
+                    <input type="text" class="form-control" id="description" placeholder="descripción"
+                        name="description">
                 </div>
 
                 <div class="mb-3">
-                    <label>Localizacion
-                        <input name="location" type="text" value="">
-                    </label>
+
+                    <label for="latitude">Coordenadas de Latitud</label>
+                    <input type="text" class="form-control" id="latitude" placeholder="latitud" name="latitude">
+
+                </div>
+
+                <div class="mb-3">
+
+                    <label for="longitude">Coordenadas de longitud</label>
+                    <input type="text" class="form-control" id="longitude" placeholder="longitud" name="longitude">
+
                 </div>
                 <div class="mb-3">
                     <input type="submit" value="Registrar albergue">

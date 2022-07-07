@@ -7,21 +7,24 @@
 
             <form action="/perros/crear" method="POST" enctype="multipart/form-data">
                 <div class="mb-3">
-                    <label>Name
-                        <input name="name" type="text">
-                    </label>
+                    <div class="md-3">
+
+                        <label for="name"></label>
+                        <input type="text" class="form-control" id="name" placeholder="nombre" name="name">
+                    </div>
 
                 </div>
 
                 <div class="mb-3">
-                    <label>Fecha de nacimiento
-                        <input name="birth" type="date">
-                    </label>
+                    <label for="name">Fecha de nacimiento</label>
+                    <input type="date" class="form-control" id="birth" placeholder="fecha de nacimiento" name="birth">
+
                 </div>
                 <div class="mb-3">
-                    <label>Description
-                        <input name="description" type="text">
-                    </label>
+                    <label for="name">Descripción</label>
+                    <input type="text" class="form-control" id="description" placeholder="descripción"
+                        name="description">
+
                 </div>
 
                 <div class="mb-3">
@@ -42,7 +45,7 @@
                 </div>
 
                 <div class="mb-3">
-                    <input type="submit" value="Registrar perro">
+                    <input type="submit" class="btn btn-dark btn-sm" value="Registrar perro">
 
             </form>
 

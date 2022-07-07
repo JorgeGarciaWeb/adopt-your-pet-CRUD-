@@ -5,6 +5,7 @@
 
 body {
   font-family: 'Arima', cursive;
+  background-color: #f1eaea;
 }
 
 img {
@@ -15,7 +16,7 @@ img {
 
 .error {
   margin-top: 10px;
-  background-color: rgb(255, 0, 0);
+  background-color: #ff0000;
   text-align: center;
   padding: 6px;
   color: white;
@@ -31,6 +32,7 @@ img {
 #myMap {
   margin-bottom: 50px;
   height: 50vh;
+  margin-top: 30px;
 
 }
 
@@ -98,13 +100,17 @@ footer {
 }
 
 .photo {
-  background-image: url(../images/huellas.jpg);
+  background-image: url(../images/huellas3.png);
   background-repeat: no-repeat;
+  margin-top: 40px;
   padding-left: 300px;
-
-
+  padding-top: 50px;
 }
 
-.btn-edit {
-  padding-bottom: 60px;
+.signup {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  width: 90%;
+
 }

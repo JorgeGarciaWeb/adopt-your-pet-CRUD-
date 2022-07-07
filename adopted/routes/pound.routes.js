@@ -70,11 +70,14 @@ router.get('/:id', (req, res, next) => {
 //EDIT POUND
 router.get('/:id/editar', (req, res, next) => {
 
-    const { _id } = req.params
+    const { id } = req.params
 
     Pound
-        .findById(_id)
-        .then(editPound => res.render('pound/edit', editPound))
+        .findById(id)
+        .then(editPound => {
+            console.log(editPound)
+            res.render('pound/edit', editPound)
+        })
         .catch(error => next(new Error(error)))
 
 })
