@@ -1,22 +1,39 @@
 <div class="container">
-    <div class="photos">
+    <div class="cool-nav cool-nav">
         <h1>Lista de perros</h1>
         <hr>
         <div class="row">
             {{#each allFormatedDogs}}
             <div class="col md-4">
                 <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                        <img src="{{avatar}}" class="card-img-top" alt="Avatar">
+                    <div class="card-body  img-fluid">
+                        <img src="{{avatar}}" class="card-img-top" alt="Avatar"
+                            style="height: 150px; object-fit: cover; object-position: top">
                         <h5 class="card-title">{{name}}</h5>
                         <h6 class="card-subtitle mb-2 text-muted">{{birth}}</h6>
                         <a href="/perros/{{_id}}" class="btn btn-info btn-sm">Ver detalle</a>
                         <a href="/contacto/{{_id}}" class="btn btn-success btn-sm">Te quiero adoptar</a>
                     </div>
                 </div>
-                <hr>
+
             </div>
             {{/each}}
         </div>
     </div>
 </div>
+{{!-- <div class="container">
+    <div class="card-group cool-nav">
+        {{#each allFormatedDogs}}
+        <div class="card">
+            <img src="{{avatar}}" class="card-img-top" alt="avatar">
+            <div class="card-body">
+                <h5 class="card-title">{{name}}</h5>
+                <p class="card-text">{{birth}}</p>
+                <a href="/perros/{{_id}}" class="btn btn-info btn-sm">Ver detalle</a>
+                <a href="/contacto/{{_id}}" class="btn btn-success btn-sm">Te quiero adoptar</a>
+            </div>
+        </div>
+        {{/each}}
+
+    </div>
+</div> --}}

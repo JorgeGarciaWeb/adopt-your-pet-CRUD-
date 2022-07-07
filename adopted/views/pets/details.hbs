@@ -1,23 +1,27 @@
 <section class="fondo">
 
-    <div class="container">
+    <div class="container cool-nav imgDetails">
 
-        <h2>
+        <img src="{{pets.avatar}}" alt="Avatar">
+
+        <h1>
             {{pets.name}}
-        </h2>
-        <h2>
+        </h1>
+        <h4>
 
             Fecha de nacimiento: {{formatDay}}
-        </h2>
-        <h2>
+        </h4>
+        <p>
             {{pets.description}}
-        </h2>
-        <h3>
+        </p>
+        <h5>
             Albergue al que pertenece: {{pets.cast.name}}
-        </h3>
-        <h3>
+        </h5>
+        <h5>
             Dueño: {{pets.owner.username}}
-        </h3>
+        </h5>
+
+        
 
         {{#if roles.isOwner}}
 

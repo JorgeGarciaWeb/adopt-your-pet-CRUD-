@@ -3,7 +3,6 @@ const router = require("express").Router();
 const bcryptjs = require('bcryptjs')
 const User = require("../models/User.model")
 const Pet = require('../models/Pet.models')
-const uploaderConfig = require('./../config/uploader.config')
 const saltRounds = 10
 const { isLoggedOut } = require("../middleware/session-guard")
 const uploaderConfig = require('./../config/uploader.config')
