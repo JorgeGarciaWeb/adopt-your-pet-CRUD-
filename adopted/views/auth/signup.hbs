@@ -1,13 +1,10 @@
 <div class="container">
-
     <div class="row justify-content-center cool-nav">
-
         <div class="col-md-6 mt-5 signup">
             <div>
                 <img src="/images/huellas3.png" alt="huellas-logo">
             </div>
-
-
+            <!--FORM SIGN UP-->
             <form action="/registro" method="POST" enctype="multipart/form-data">
                 <h1>Registro de usuario</h1>
                 <hr>
@@ -23,29 +20,24 @@
                         <div class="form-text">Requerido.</div>
                     </div>
                 </div>
-
                 <div class="mb-3">
                     <label for="username" class="form-label">Nombre de usuario</label>
                     <input type="text" class="form-control" id="username" name="username">
                 </div>
-
                 <div class="mb-3">
                     <label>
                         <input name="avatar" type="file">
                     </label>
                 </div>
-
                 <div class="d-grid gap-2">
                     <button type="submit" class="btn btn-dark block">Completar registro</button>
                 </div>
-
+                <!--ERROR SIGN UP-->
                 {{#if errorMessage}}
                 <div class="error">
                     {{errorMessage}}
                 </div>
-
                 {{/if}}
-
             </form>
         </div>
     </div>

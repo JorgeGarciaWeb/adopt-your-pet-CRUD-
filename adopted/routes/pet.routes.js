@@ -1,10 +1,11 @@
 const router = require("express").Router()
+
 const Pet = require('../models/Pet.models')
 const Pound = require('../models/Pound.models')
+
 const { isLoggedIn, isOwner, isAdmin } = require("../middleware/session-guard")
 const { rolesChecker } = require('../utils/roles-checker')
-const formatDay = require('../utils/format-day')
-const { checkRole } = require('../middleware/roles-checker')
+
 const uploaderConfig = require('./../config/uploader.config')
 const formatDate = require('./../utils/format-day')
 
@@ -93,7 +94,6 @@ router.get('/editar/:id', isLoggedIn, isOwner, (req, res, next) => {
         .catch(error => next(new Error(error)))
 })
 
-
 router.post('/editar/:id', isOwner, uploaderConfig.single('avatar'), (req, res, next) => {
 
     const { id } = req.params
@@ -109,7 +109,6 @@ router.post('/editar/:id', isOwner, uploaderConfig.single('avatar'), (req, res, 
         .findByIdAndUpdate(id, query)
         .then(() => res.redirect('/perros/lista'))
         .catch(error => next(new Error(error)))
-
 })
 
 //DELETE

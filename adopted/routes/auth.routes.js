@@ -1,13 +1,13 @@
 const router = require("express").Router()
 
 const bcryptjs = require('bcryptjs')
+
 const User = require("../models/User.model")
 const Pet = require('../models/Pet.models')
+
 const uploaderConfig = require('./../config/uploader.config')
 const saltRounds = 10
 const { isLoggedOut } = require("../middleware/session-guard")
-
-
 
 //SIGNUP
 router.get('/registro', isLoggedOut, (req, res, next) => res.render("auth/signup"))
@@ -29,6 +29,7 @@ router.post('/registro', isLoggedOut, uploaderConfig.single("avatar"), (req, res
         .catch(error => next(new Error(error)))
 
 })
+
 //LOG-IN
 router.get('/iniciar-sesion', isLoggedOut, (req, res, next) => res.render('auth/login'))
 

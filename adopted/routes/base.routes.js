@@ -19,6 +19,7 @@ router.get('/contacto/:id', (req, res, next) => {
         .catch(error => next(new Error(error)))
 
 })
+
 router.post('/contacto/:id', (req, res, next) => {
 
     const { subject, message, email, ownerEmail } = req.body
