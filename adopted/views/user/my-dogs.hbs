@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container mt-4">
 
     <h1>Perfil de {{user.username}}</h1>
     <figure class="card" style="width: 18rem">
@@ -8,8 +8,8 @@
     {{#if roles.isUser}}
     <h1>Mis perros</h1>
     {{#each pet}}
-    <p>Nombre <br>{{name}} </p>
-    <p>Descripción <br>{{description}}</p>
+    <p><strong>Nombre</strong><br>{{name}} </p>
+    <p><strong>Descripción</strong> <br>{{description}}</p>
     <figure class="card" style="width: 18rem">
         <img src="{{avatar}}" class="card-img-top">
     </figure>
