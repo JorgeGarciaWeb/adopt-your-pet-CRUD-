@@ -7,13 +7,11 @@
 
             <form action="/albergue/formulario-adopcion/{{thisId}}" method="POST">
                 <div class="mb-3">
-                    <label>Nombre
-                        <input name="name" type="text" value="name">
-                    </label>
+                   <h2>Selecciona usuario</h2>
 
                 </div>
                 <div class="mb-3">
-                    <label for="owner" class="form-label">Seleccionar</label>
+                   
                     <select name="owner" class="form-select">
                         {{#each allUsers}}
                         <option value={{_id}}>{{username}}</option>
