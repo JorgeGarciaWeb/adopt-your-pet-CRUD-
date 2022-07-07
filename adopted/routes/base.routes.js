@@ -24,8 +24,6 @@ router.post('/contacto/:id', (req, res, next) => {
     const { subject, message, email, ownerEmail } = req.body
     const { id } = req.params
 
-    console.log('******', req.body)
-
     transporter
         .sendMail({
             from: "<adoptatuperro2022@gmail.com>",
