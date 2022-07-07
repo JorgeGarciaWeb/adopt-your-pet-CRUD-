@@ -21,7 +21,10 @@ router.get('/lista', (req, res, next) => {
                 let formatedDog = { ...dog._doc, birth: formatedDate }
                 allFormatedDogs.push(formatedDog)
             })
-            res.render("pets/list", { allFormatedDogs })
+            let adoptedDog = allFormatedDogs.filter(elm => elm.available === true)
+            let newAdoptedList = { ...adoptedDog }
+
+            res.render("pets/list", { newAdoptedList, allFormatedDogs })
         })
         .catch(error => next(new Error(error)))
 })
@@ -30,7 +33,6 @@ router.get('/lista', (req, res, next) => {
 router.get('/iniciar-sesion', (req, res, next) => {
 
     const { _id: owner } = req.session.currentUser
-
 
     Pet
         .find({ owner })
@@ -50,7 +52,6 @@ router.get('/crear', isLoggedIn, isOwner, (req, res, next) => {
 router.post('/crear', isLoggedIn, isOwner, uploaderConfig.single('avatar'), (req, res, next) => {
 
     const { name, birth, description, cast } = req.body
-
     const owner = req.session.currentUser._id
 
     Pet
@@ -65,14 +66,11 @@ router.get('/:id', (req, res, next) => {
     const { id } = req.params
     const roles = rolesChecker(req.session.currentUser)
 
-
     Pet
         .findById(id)
         .populate('cast owner')
         .then(pets => {
             const formatDay = formatDate(pets.birth)
-
-
             res.render('pets/details', { pets, roles, formatDay })
         })
         .catch(error => next(new Error(error)))
@@ -120,6 +118,6 @@ router.post("/borrar/:id", isLoggedIn, isOwner, isAdmin, (req, res, next) => {
     Pet.findByIdAndDelete(id)
         .then(() => res.redirect("/perros/lista"))
         .catch(error => next(new Error(error)))
-});
+})
 
 module.exports = router

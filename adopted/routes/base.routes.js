@@ -14,7 +14,6 @@ router.get('/contacto/:id', (req, res, next) => {
         .findById(id)
         .populate('owner')
         .then(editPound => {
-            console.log('---------->>', editPound)
             res.render('page/contact', editPound)
         })
         .catch(error => next(new Error(error)))
@@ -25,7 +24,7 @@ router.post('/contacto/:id', (req, res, next) => {
     const { subject, message, email, ownerEmail } = req.body
     const { id } = req.params
 
-    console.log('---es el correo del owner---', req.session.currentUser)
+    console.log('******', req.body)
 
     transporter
         .sendMail({
@@ -35,15 +34,20 @@ router.post('/contacto/:id', (req, res, next) => {
             text: message,
             html: ` 
            <div> 
-           <p>Hola humano!</p> 
-           <p>Tu solicitud está en tramite</p> 
-           <p>Pronto tendras noticias del albergue! </p> 
+           <p>Hola!!</p> 
+           <p>Se ha solicitado la adopción de un perrete de tu albergue</p> 
+           <p>Dirigite a tu perfil para aceptar la adopción </p> 
            <hr>
-           <p>Albergues de España </p>
+           <p>Mensaje: ${message}</p> 
+           <p>email del interesad@: ${email}</p> 
+
+           <p>Adopt a dog_ </p>
            </div> 
        `
         })
-        .then(() => res.redirect('perros/lista'))
+        .then(() => {
+            res.redirect('/perros/lista')
+        })
         .catch(error => next(new Error(error)))
 
 })

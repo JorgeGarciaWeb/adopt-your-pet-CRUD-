@@ -2,17 +2,17 @@
     <div class="row justify-content-center">
         <div class="col-md-6">
 
-            <h1>Contacta</h1>
+            <h1>Petición de registro de albergue</h1>
             <hr>
-            <form action="/contacto/{{id}}" method="POST">
+            <form action="/cambiar-rol/{{id}}" method="POST">
 
                 <div class="row">
 
                     <div class="col">
 
                         <div class="mb-3">
-                            <label for="subject" class="form-label">Nombre</label>
-                            <input type="text" class="form-control" id="subject" name="subject">
+                            <label for="name" class="form-label">Nombre</label>
+                            <input type="text" class="form-control" id="name" name="name">
                         </div>
 
                     </div>
@@ -20,8 +20,8 @@
                     <div class="col">
 
                         <div class="mb-3">
-                            <label for="name" class="form-label">Asunto</label>
-                            <input type="text" class="form-control" id="name" name="name">
+                            <label for="subject" class="form-label">Asunto</label>
+                            <input type="text" class="form-control" id="subject" name="subject">
                         </div>
 
                     </div>
@@ -36,11 +36,10 @@
                 <div class="mb-3">
                     <label for="message" class="form-label">Mensaje</label>
                     <input type="text" class="form-control" id="message" name="message">
+
                 </div>
 
-
-                <input type="text" class="form-control" id="message" name="ownerEmail" value={{owner.email}} hidden>
-                <button type="submit" class="btn btn-dark mt-3">Enviar formulario de adopción</button>
+                <button type="submit" class="btn btn-dark mt-3">Enviar formulario para registrar albergue</button>
             </form>
 
         </div>
