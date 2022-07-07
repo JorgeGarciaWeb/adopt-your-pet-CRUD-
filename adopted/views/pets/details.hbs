@@ -2,14 +2,16 @@
 
     <div class="container cool-nav imgDetails">
 
-        <img src="{{pets.avatar}}" alt="Avatar">
-
         <h1>
             {{pets.name}}
         </h1>
-        <h4>
 
+        <img src="{{pets.avatar}}" alt="Avatar">
+
+        <h4>
+            <br>
             Fecha de nacimiento: {{formatDay}}
+
         </h4>
         <p>
             {{pets.description}}
@@ -29,9 +31,10 @@
             <a href="/albergue/formulario-adopcion/{{pets._id}}" class="btn btn-dark btn-sm">Aceptar adopción</a>
             <a class="btn btn-sm btn-danger" href="/perros/editar/{{pets.id}}">Editar</a>
         </div>
+        <br>
         <div class="btn-delete">
             <form action="/perros/borrar/{{pets.id}}" method="POST">
-                <button class="btn btn-sm btn-dark" type="submit">Eliminar</button>
+                <button class="btn btn-sm btn-info" type="submit">Eliminar</button>
             </form>
         </div>
         {{/if}}

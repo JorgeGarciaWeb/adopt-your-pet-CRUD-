@@ -1,11 +1,13 @@
 const router = require("express").Router()
+
 const Pet = require('../models/Pet.models')
 const User = require("../models/User.model")
-const { checkRole } = require('../middleware/roles-checker')
+
 const { rolesChecker } = require('../utils/roles-checker')
-const { isLoggedIn, isOwner, isAdmin } = require("../middleware/session-guard")
+const { isLoggedIn } = require("../middleware/session-guard")
+
 const transporter = require('../config/transporter.config')
-const { captureRejectionSymbol } = require("connect-mongo")
+
 
 
 //CHANGE ROLE
@@ -53,6 +55,7 @@ router.get('/cambiar-rol/:id', (req, res, next) => {
     res.render('page/owner', { id })
 
 })
+
 router.post('/cambiar-rol/:id', (req, res, next) => {
 
     const { subject, message, email, ownerEmail, name } = req.body
@@ -69,7 +72,6 @@ router.post('/cambiar-rol/:id', (req, res, next) => {
            <p>Email del solicitante: ${email}</p> 
            <p>${message}</p> 
            <hr>
-           <p>Buenos días</p> 
            <p>Se ha solicitado un registro de albergue nuevo.</p> 
            <p>En un plazo máximo de 24 horas tiene que ser autorizado.</p> 
            <hr>
