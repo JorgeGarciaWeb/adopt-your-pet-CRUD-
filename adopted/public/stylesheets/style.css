@@ -97,6 +97,14 @@ footer {
   width: 50%;
 }
 
-.end-nav {
-  flex-grow: 0
+.photo {
+  background-image: url(../images/huellas.jpg);
+  background-repeat: no-repeat;
+  padding-left: 300px;
+
+
+}
+
+.btn-edit {
+  padding-bottom: 60px;
 }

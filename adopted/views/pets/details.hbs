@@ -21,13 +21,15 @@
             Dueño: {{pets.owner.username}}
         </h5>
 
-        
+
 
         {{#if roles.isOwner}}
 
-        <div>
+        <div class="btn-edit">
             <a href="/albergue/formulario-adopcion/{{pets._id}}" class="btn btn-dark btn-sm">Aceptar adopción</a>
             <a class="btn btn-sm btn-danger" href="/perros/editar/{{pets.id}}">Editar</a>
+        </div>
+        <div class="btn-delete">
             <form action="/perros/borrar/{{pets.id}}" method="POST">
                 <button class="btn btn-sm btn-dark" type="submit">Eliminar</button>
             </form>

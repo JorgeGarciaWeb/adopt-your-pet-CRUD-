@@ -1,28 +1,30 @@
 <div class="container">
-    <div class="row justify-content-center cool-nav">
-        <div class="col-md-6">
+    <div class="photo">
+        <div class="row justify-content-center cool-nav">
+            <div class="col-md-6">
 
-            <h1>Inicio de sesión</h1>
-            <hr>
+                <h1>Inicio de sesión</h1>
+                <hr>
 
-            <form action="/iniciar-sesion" method="POST">
-                <div class="mb-3">
-                    <label for="email" class="form-label">Email</label>
-                    <input type="text" class="form-control" id="email" name="email">
-                </div>
-                <div class="mb-3">
-                    <label for="password" class="form-label">Contraseña</label>
-                    <input type="password" class="form-control" id="password" name="password">
-                </div>
+                <form action="/iniciar-sesion" method="POST">
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="text" class="form-control" id="email" name="email">
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Contraseña</label>
+                        <input type="password" class="form-control" id="password" name="password">
+                    </div>
 
-                {{#if errorMessage}}
-                <div class="error">
-                    {{errorMessage}}
-                </div>
-                {{/if}}
+                    {{#if errorMessage}}
+                    <div class="error">
+                        {{errorMessage}}
+                    </div>
+                    {{/if}}
 
-                <button type="submit" class="btn btn-dark mt-3">Iniciar sesión</button>
-            </form>
+                    <button type="submit" class="btn btn-dark mt-3">Iniciar sesión</button>
+                </form>
+            </div>
         </div>
     </div>
 </div>

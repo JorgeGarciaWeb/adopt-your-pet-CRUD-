@@ -8,12 +8,16 @@
     {{#if roles.isUser}}
     <h1>Mis perros</h1>
     {{#each pet}}
-    <p>Raza <br>{{name}} </p>
+    <p>Nombre <br>{{name}} </p>
     <p>Descripción <br>{{description}}</p>
+    <figure class="card" style="width: 18rem">
+        <img src="{{avatar}}" class="card-img-top">
+    </figure>
     <hr>
     {{/each}}
     <a href="/cambiar-rol/{{user.id}}" class="btn btn-success btn-sm">Solicitar permisos como dueño de un albergue</a>
     <hr>
+    <br>
     {{/if}}
 
     {{#if roles.isOwner}}
