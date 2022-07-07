@@ -1,11 +1,11 @@
 <div class="container">
     <div class="albergue/lista cool-nav">
 
-        <h2>Actualiza los datos de {{editPound.name}}</h2>
+        <h2>Actualiza los datos de {{name}}</h2>
 
         <form action="/albergue/{{id}}/editar" method="POST">
 
-            <div class="col-md-6">
+            <div class="md-3">
 
                 <label for="name"></label>
                 <input type="text" class="form-control" id="name" placeholder="nombre" name="name" value="{{name}}">
