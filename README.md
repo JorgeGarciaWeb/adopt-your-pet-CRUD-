@@ -1,7 +1,5 @@
 # adopted-Your-Pet
 
-# adopted-Your-Pet
-
 This is the routes that use :
 
 | URL     |            VERB           | DESCRIPTION              
