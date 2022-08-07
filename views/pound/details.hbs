@@ -1,0 +1,30 @@
+<div class="container cool-nav">
+    <h1>Detalles del albergue</h1>
+    <hr>
+    <div class="container">
+        <h2>
+            {{pound.name}}
+        </h2>
+        <h2>
+            {{pound.description}}
+        </h2>
+        <h2>
+            {{pound.location.coordinates.[0]}}
+        </h2>
+        <h2>
+            {{pound.location.coordinates.[1]}}
+        </h2>
+    </div>
+    {{#if roles.isAdmin}}
+    <div class="container">
+        <a href="/albergue/{{pound.id}}/editar" class="btn btn-dark btn-sm">Editar albergue</a>
+        <form action="/albergue/{{pound.id}}/eliminar" method="POST" style="display: inline-block">
+            <input type="submit" value="Eliminar" class="btn btn-dark btn-sm">
+        </form>
+
+        <a href="/albergue/lista" class="btn btn-dark btn-sm">Volver al inicio</a>
+
+    </div>
+    {{/if}}
+    <div id="myMap"></div>
+</div>

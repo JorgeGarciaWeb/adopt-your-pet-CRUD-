@@ -1,0 +1,121 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Arima', cursive;
+  background-color: #f1eaea;
+}
+
+img {
+  width: 100%;
+  height: auto;
+
+}
+
+.error {
+  margin-top: 10px;
+  background-color: #ff0000;
+  text-align: center;
+  padding: 6px;
+  color: white;
+  border-radius: 10px;
+}
+
+
+.photos {
+  position: absolute;
+  height: 60%;
+}
+
+#myMap {
+  margin-bottom: 50px;
+  height: 50vh;
+  margin-top: 30px;
+
+}
+
+.card-body {
+  height: 30%;
+}
+
+.hero {
+  width: 100%;
+  filter: opacity();
+  height: 100%;
+
+}
+
+figure {
+  width: 100%;
+  height: auto;
+  position: relative;
+  overflow: hidden;
+}
+
+video {
+  width: 100%;
+}
+
+.absolute {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  position: absolute;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+}
+
+.separete {
+  font-size: 80px;
+  font-weight: 900;
+  color: black;
+  z-index: 100;
+  margin-top: 250px;
+
+}
+
+footer {
+
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding: 5px;
+  font-size: .8em;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.cool-nav {
+  margin-top: 20px;
+  margin-bottom: 80px;
+}
+
+.imgDetails {
+  width: 50%;
+}
+
+.photo {
+  background-image: url(../images/huellas3.png);
+  background-repeat: no-repeat;
+  margin-top: 40px;
+  padding-left: 300px;
+  padding-top: 50px;
+}
+
+.signup {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  width: 90%;
+
+}
+
+.text{
+  text-align: center;
+  margin-top: 20px;
+}

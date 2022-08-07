@@ -1,0 +1,42 @@
+<section class="fondo">
+
+    <div class="container cool-nav imgDetails">
+
+        <h1>
+            {{pets.name}}
+        </h1>
+
+        <img src="{{pets.avatar}}" alt="Avatar">
+
+        <h4>
+            <br>
+            Fecha de nacimiento: {{formatDay}}
+
+        </h4>
+        <p>
+            {{pets.description}}
+        </p>
+        <h5>
+            Albergue al que pertenece: {{pets.cast.name}}
+        </h5>
+        <h5>
+            Dueño: {{pets.owner.username}}
+        </h5>
+
+
+
+        {{#if roles.isOwner}}
+
+        <div class="btn-edit">
+            <a href="/albergue/formulario-adopcion/{{pets._id}}" class="btn btn-dark btn-sm">Aceptar adopción</a>
+            <a class="btn btn-sm btn-danger" href="/perros/editar/{{pets.id}}">Editar</a>
+        </div>
+        <br>
+        <div class="btn-delete">
+            <form action="/perros/borrar/{{pets.id}}" method="POST">
+                <button class="btn btn-sm btn-info" type="submit">Eliminar</button>
+            </form>
+        </div>
+        {{/if}}
+    </div>
+</section>

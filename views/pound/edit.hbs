@@ -1,0 +1,55 @@
+<div class="container">
+    <div class="albergue/lista cool-nav">
+
+        <h2>Actualiza los datos de {{name}}</h2>
+
+        <form action="/albergue/{{id}}/editar" method="POST">
+
+            <div class="md-3">
+
+                <label for="name"></label>
+                <input type="text" class="form-control" id="name" placeholder="nombre" name="name" value="{{name}}">
+            </div>
+
+            <div class="mb-3">
+                <label for="description"></label>
+                <input type="text" class="form-control" id="description" placeholder="descripción" name="description"
+                    value="{{description}}">
+            </div>
+
+            <div class="mb-3">
+                <label for="latitude"></label>
+                <input type="text" class="form-control" id="latitude" placeholder="latitud" name="latitude"
+                    value="{{location.coordinates.[0]}}">
+            </div>
+
+            <div class="mb-3">
+                <label for="longitude"></label>
+                <input type="text" class="form-control" id="longitude" placeholder="longitud" name="longitude"
+                    value="{{location.coordinates.[1]}}">
+            </div>
+            <div class="container">
+                <button type="submit" class="btn btn-dark btn-sm">Editar albergue</button>
+
+
+                <a href="/albergue/lista" class="btn btn-dark btn-sm">Volver al inicio</a>
+            </div>
+        </form>
+    </div>
+    <!--MAP DIV-->
+    <div id="myMap"></div>
+
+    <!--AXIOS SCRIPT-->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <!--MAP SCRIPT-->
+    <script src="/js/maps-pound.js"></script>
+    <script src="/js/maps-styles.js"></script>
+
+
+    <!--API KEY GOOGLE-->
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCwg1t-8kqR7GFNEiPlrtKF1eWrGB5GZ5E&callback=init"></script>
+
+</div>

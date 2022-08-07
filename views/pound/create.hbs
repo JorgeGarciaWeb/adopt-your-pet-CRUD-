@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="row justify-content-center cool-nav">
+        <div class="col-md-6">
+            <h1>Registrar nuevo albergue</h1>
+
+            <hr>
+
+            <form method="POST" action="/albergue/crear">
+                <div class="mb-3">
+                    <label for="name">Nombre del albergue</label>
+                    <input type="text" class="form-control" id="name" placeholder="nombre" name="name">
+                </div>
+                <div class="mb-3">
+                    <label for="description">Descripción del albergue</label>
+                    <input type="text" class="form-control" id="description" placeholder="descripción"
+                        name="description">
+                </div>
+
+                <div class="mb-3">
+
+                    <label for="latitude">Coordenadas de Latitud</label>
+                    <input type="text" class="form-control" id="latitude" placeholder="latitud" name="latitude">
+
+                </div>
+
+                <div class="mb-3">
+
+                    <label for="longitude">Coordenadas de longitud</label>
+                    <input type="text" class="form-control" id="longitude" placeholder="longitud" name="longitude">
+
+                </div>
+                <div class="mb-3">
+                    <input type="submit" value="Registrar albergue">
+                </div>
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
